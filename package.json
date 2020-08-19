@@ -1,0 +1,16 @@
+{
+  "name": "cca-moodle-styles",
+  "version": "1.0.0",
+  "description": "CCA custom Moodle styles (HTML, CSS, JS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "phette23 <phette23@gmail.com> (http://phette.net)",
+  "license": "ECL-2.0",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0"
+  }
+}

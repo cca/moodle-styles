@@ -1,0 +1,11 @@
+// https://github.com/moodlehq/moodleapp
+// https://docs.moodle.org/38/en/Moodle_app_guide_for_admins#Customise_your_app_theme
+// https://docs.moodle.org/dev/Moodle_Mobile_Themes
+
+// hide course progress indicator on dashboard block
+// https://github.com/moodlehq/moodleapp/blob/master/src/components/progress-bar/
+.core-progress-bar,
+progress,
+.core-progress-text {
+    display: none !important;
+}
