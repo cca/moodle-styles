@@ -4,13 +4,22 @@
   "description": "CCA custom Moodle styles (HTML, CSS, JS)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "css": "cat scss/*.scss | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=themesettingboost#theme_boost_advanced'",
+      "js": "gulp addlhtml; cat build/footer.js | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=additionalhtml'",
+      "mobile": "gulp mobile; scp build/mobile.css moodle.cca.edu:/opt/moodle38/local"
   },
   "author": "phette23 <phette23@gmail.com> (http://phette.net)",
   "license": "ECL-2.0",
   "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-iife": "^0.4.0",
+    "gulp-insert": "^0.5.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.1.0"
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2"
   }
 }
