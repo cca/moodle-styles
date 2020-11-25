@@ -55,3 +55,10 @@ a[data-key="home"] {
         visibility: hidden;
     }
 }
+
+.atto_image_preview_box {
+    // preview of a very wide image can extend past the screen with
+    // cca/moodle-styles#2 limit to viewport width minus approx. width of modal
+    // dialog positioning + padding of the form multiplied by two
+    max-width: calc(100vw - 4rem) !important;
+}
