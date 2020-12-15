@@ -1,8 +1,10 @@
 // run on course home pages
+// we don't have jQuery yet so use vanilla JS
 if (location.pathname.match('/course/view.php')) {
+
     let d = document
-    // we don't have jQuery yet so use vanilla JS
-    // is there a highlighted section? find its name
+
+    // better section highlighting. Find highlighted setion's name
     let highlightedSection = d.querySelector('.course-content li.section.current')
 
     if (highlightedSection) {
@@ -16,4 +18,8 @@ if (location.pathname.match('/course/view.php')) {
             }
         })
     }
+
+    // hide "restore" link in main actions menu
+    let restore = d.querySelector('.context-header-settings-menu .dropdown-item [href*="/backup/restorefile.php?contextid="]').parentElement
+    restore.parentElement.removeChild(restore)
 }
