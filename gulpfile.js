@@ -42,5 +42,4 @@ function watchTask() {
 exports.addlhtml = addlhtml
 exports.default = parallel([moodleMobile])
 exports.mobile = moodleMobile
-exports.scp = scp
 exports.watch = watchTask
