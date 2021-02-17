@@ -62,3 +62,9 @@ a[data-key="home"] {
     // dialog positioning + padding of the form multiplied by two
     max-width: calc(100vw - 4rem) !important;
 }
+
+#id_general #id_idnumber,
+#id_general #id_shortname {
+    // max shortname & idnumber inputs as wide as course title under Edit Settings
+    width: 421.7px;
+}
