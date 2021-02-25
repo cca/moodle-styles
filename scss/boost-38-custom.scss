@@ -63,6 +63,10 @@ a[data-key="home"] {
     max-width: calc(100vw - 4rem) !important;
 }
 
+#rubric-criteria tr.odd {
+    background: #fff;
+}
+
 #id_general #id_idnumber,
 #id_general #id_shortname {
     // max shortname & idnumber inputs as wide as course title under Edit Settings
