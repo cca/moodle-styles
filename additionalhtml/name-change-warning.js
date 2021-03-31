@@ -7,6 +7,6 @@ if (page.match('/user/edit.php') || page.match('/user/editadvanced.php')) {
         $(event.target.parentElement).after(html)
     }
     document.querySelectorAll('#id_firstname, #id_lastname').forEach(el => {
-        addEventListener('change', showNameChangeWarning, { once: true })
+        el.addEventListener('change', showNameChangeWarning, { once: true })
     })
 }
