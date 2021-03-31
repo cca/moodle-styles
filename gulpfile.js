@@ -28,7 +28,7 @@ function addlhtml() {
         .pipe(iife())
         .pipe(babel({ presets: ['@babel/preset-env'] }))
         .pipe(uglify())
-        .pipe(insert.prepend(`<script>\n// minified ${Date()} - see https://github.com/cca/moodle-styles\n`))
+        .pipe(insert.prepend(`<script>\n// minified ${new Date().toLocaleString()} - see https://github.com/cca/moodle-styles\n`))
         .pipe(insert.append('\n</script>'))
         .pipe(dest(settings.dest))
 }
