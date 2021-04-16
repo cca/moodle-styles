@@ -1,6 +1,7 @@
 const { src, dest, parallel, watch } = require('gulp')
 const babel = require("gulp-babel")
 const concat = require("gulp-concat")
+const eslint = require('gulp-eslint')
 const iife = require("gulp-iife")
 const insert = require("gulp-insert")
 const rename = require('gulp-rename')
@@ -33,6 +34,12 @@ function addlhtml() {
         .pipe(dest(settings.dest))
 }
 
+function lint() {
+	return src(settings.src.additionalhtml)
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError())
+}
+
 // watch each main set of files & run its associated task
 function watchTask() {
 	return watch(settings.src.mobile, moodleMobile)
@@ -41,5 +48,6 @@ function watchTask() {
 // by default, do all builds in parallel
 exports.addlhtml = addlhtml
 exports.default = parallel([moodleMobile])
+exports.lint = exports.test = lint
 exports.mobile = moodleMobile
 exports.watch = watchTask
