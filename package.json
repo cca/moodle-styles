@@ -6,7 +6,8 @@
   "scripts": {
     "css": "cat scss/*.scss | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=themesettingboost#theme_boost_advanced'",
     "js": "gulp addlhtml; cat build/footer.js | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=additionalhtml'",
-    "mobile": "gulp mobile; scp build/mobile.css moodle.cca.edu:/opt/moodle38/local"
+    "mobile": "gulp mobile; scp build/mobile.css moodle.cca.edu:/opt/moodle38/local",
+    "test": "gulp lint"
   },
   "author": "phette23 <phette23@gmail.com> (http://phette.net)",
   "license": "ECL-2.0",
