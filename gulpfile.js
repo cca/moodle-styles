@@ -36,6 +36,7 @@ function addlhtml() {
 
 function lint() {
 	return src(settings.src.additionalhtml)
+		.pipe(eslint())
 		.pipe(eslint.format())
 		.pipe(eslint.failAfterError())
 }
