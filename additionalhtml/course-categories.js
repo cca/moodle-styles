@@ -1,4 +1,4 @@
-// run on course home pages
+// run on course management page
 // we don't have jQuery yet so use vanilla JS
 if (location.pathname.match('/course/management.php')) {
     // make course titles link to course view instead of same page we're on
