@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "css": "cat scss/*.scss | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=themesettingboost#theme_boost_advanced'",
+    "cssd": "cat scss/*.scss | pbcopy; open 'https://moodle-dev.cca.edu/admin/settings.php?section=themesettingboost#theme_boost_advanced'",
     "js": "gulp addlhtml; cat build/footer.js | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=additionalhtml'",
+    "jsd": "gulp addlhtml; cat build/footer.js | pbcopy; open 'https://moodle-dev.cca.edu/admin/settings.php?section=additionalhtml'",
     "mobile": "gulp mobile; scp build/mobile.css moodle.cca.edu:/opt/moodle38/local",
     "test": "gulp lint"
   },
