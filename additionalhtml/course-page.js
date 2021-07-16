@@ -4,11 +4,11 @@ if (location.pathname.match('/course/view.php')) {
 
     let d = document
 
-    // better section highlighting. Find highlighted setion's name
+    // better section highlighting. Find highlighted section's name
     let highlightedSection = d.querySelector('.course-content li.section.current')
 
     if (highlightedSection) {
-        let name = highlightedSection.ariaLabel.trim()
+        let name = highlightedSection.querySelector('.sectionname').textContent.trim()
 
         // REM: QSA => NodeList & not Array, but forEach is widely supported now
         d.querySelectorAll('#nav-drawer li').forEach(item => {
