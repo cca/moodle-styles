@@ -19,7 +19,13 @@ if (location.pathname.match('/course/view.php')) {
         })
     }
 
-    // hide "restore" link in main actions menu
-    let restore = d.querySelector('.context-header-settings-menu .dropdown-item [href*="/backup/restorefile.php?contextid="]').parentElement
-    restore.parentElement.removeChild(restore)
+    // hide Restore, Filter, & Reset links in course "edit settings" menu
+    [
+        '/backup/restorefile.php?contextid=',
+        '/filter/manage.php?contextid=',
+        '/course/reset.php?id='
+    ].forEach(u => {
+        let el = d.querySelector(`.context-header-settings-menu .dropdown-item [href*="${u}"]`).parentElement
+        el.parentElement.removeChild(el)
+    })
 }
