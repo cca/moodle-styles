@@ -10,7 +10,7 @@ function hyperlinkText(str) {
         // try to validate the URL a little
         try {
             let u = new URL(url)
-            return `${space}<a href="${u.toString()}">${url}</a>`
+            return `${space}<a href="${u.toString()}" target="_blank">${url}</a>`
         } catch(e) {
             console.error('Regex captured a malformed URL:', e)
             // send the original text
