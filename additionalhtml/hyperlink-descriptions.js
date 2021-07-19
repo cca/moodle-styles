@@ -20,20 +20,27 @@ function hyperlinkText(str) {
 }
 
 // now that we have modal text on the page, hyperlink it if it hasn't already
-// been hyperlinked. We will definitely have jQuery available by now.
+// been hyperlinked
 function onModalAppear(mutation) {
     let hypeClass = 'js-hyperlinked'
     let descSelector = '[id^="optionsumary_desc-"]'
+    let tourSelector = '[id^="tour-step-tool_usertours_"] .modal-body'
+    let tour = document.querySelector(tourSelector)
 
-    // check that we haven't hyperlinked this text already
-    if ($(descSelector).length && !$(descSelector).hasClass(hypeClass)) {
+    // we will have jQuery by the time someone clicks into a description
+    if (window.jQuery && $(descSelector).length && !$(descSelector).hasClass(hypeClass)) {
         let $desc = $(descSelector)
         $desc.find('p').each((idx, el) => {
             let $p = $(el)
-            let text = $p.text()
-            $p.html(hyperlinkText(text))
+            let html = hyperlinkText($p.text())
+            $p.html(html)
         })
         $desc.addClass(hypeClass)
+    // tours appear immediately, even before jQuery is loaded, somehow
+    } else if (tour && !tour.classList.contains(hypeClass)) {
+        let html = hyperlinkText(tour.textContent)
+        tour.innerHTML = html
+        tour.classList.add(hypeClass)
     }
 }
 
@@ -41,7 +48,12 @@ function onModalAppear(mutation) {
 document.addEventListener('DOMContentLoaded', () => {
     if (MutationObserver) {
         let observer = new MutationObserver(onModalAppear)
+        let options = {
+            attributeFilter: ['id', 'class'],
+            childList: true,
+            subtree: true
+        }
         // the modal isn't on DOM yet so we just have to observe the whole body
-        observer.observe(document.querySelector('body'), {subtree: true, childList: true})
+        observer.observe(document.querySelector('body'), options)
     }
 })
