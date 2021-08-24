@@ -63,8 +63,16 @@ a[data-key="home"] {
     max-width: calc(100vw - 4rem) !important;
 }
 
+// rubrics
 #rubric-criteria tr.odd {
     background: #fff;
+}
+// fix extra-long criterion column, ref #9
+.gradingform_rubric .criterion .description {
+    max-width: 300px;
+}
+.gradingform_rubric .criterion .levels .level {
+    max-width: none;
 }
 
 #id_general #id_idnumber,
