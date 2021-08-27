@@ -3,10 +3,10 @@
 // code monitors the DOM for the appropriate modal dialogs and, when it sees
 // them, does a simple text replace to hyperlink the URLs.
 
-// given plain text with included URLs like 'google https://google.com' into
-// hyperlinks like 'google <a href="https://google.com/">https://google.com</a>'
+// given plain text with included URLs like 'search https://google.com' into
+// hyperlinks like 'search <a href="https://google.com/">https://google.com</a>'
 function hyperlinkText(str) {
-    return str.replace(/([^\S]|^)(https?\:\/\/[^\s]*)/gi, (match, space, url) => {
+    return str.replace(/([^\S]|^)(https?:\/\/[^\s]*)/gi, (match, space, url) => {
         // try to validate the URL a little
         try {
             let u = new URL(url)
@@ -14,14 +14,14 @@ function hyperlinkText(str) {
         } catch(e) {
             console.error('Regex captured a malformed URL:', e)
             // send the original text
-            return before + url + after
+            return str
         }
     })
 }
 
 // now that we have modal text on the page, hyperlink it if it hasn't already
 // been hyperlinked
-function onModalAppear(mutation) {
+function onModalAppear() {
     let hypeClass = 'js-hyperlinked'
     let descSelector = '[id^="optionsumary_desc-"]'
     let tourSelector = '[id^="tour-step-tool_usertours_"] .modal-body'
