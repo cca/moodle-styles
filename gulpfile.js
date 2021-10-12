@@ -5,7 +5,7 @@ const eslint = require('gulp-eslint')
 const iife = require("gulp-iife")
 const insert = require("gulp-insert")
 const rename = require('gulp-rename')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('node-sass'))
 const uglify = require("gulp-uglify")
 
 const settings = {
