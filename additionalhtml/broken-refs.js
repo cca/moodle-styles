@@ -3,11 +3,7 @@ const links = {
     'https://portal.cca.edu/learning/shops-studios-labs/hybrid_studio_resources/#software-coaching':
     'https://portal.cca.edu/learning/academic-technology/training-support/software-coaching/',
     'https://portal.cca.edu/learning/shops-studios-labs/online_studio_resources/#software-coaching':
-    'https://portal.cca.edu/learning/academic-technology/training-support/software-coaching/',
-    'https://libraries.cca.edu/about-us/about-us/ask-a-librarian/':
-    'https://docs.google.com/forms/d/e/1FAIpQLSc1-K0wNRPZOCbM3s3iCUiHql8CR4y5E9Cc79qIOS5xDC6XOg/viewform?usp=sf_link',
-    'https://libraries.cca.edu/':
-    'https://docs.google.com/document/d/1204OAXIo8iyVJIqpyWpSTD3w3HPczc0SLAKyFH7JCKw/edit?usp=sharing'
+    'https://portal.cca.edu/learning/academic-technology/training-support/software-coaching/'
 }
 const broken = Object.keys(links)
 document.querySelectorAll('a').forEach(a => {
@@ -17,6 +13,7 @@ document.querySelectorAll('a').forEach(a => {
     }
 })
 // images (point to Portal & not Libraries, related to Oct. 2021 outage)
+// @TODO why are these links still broken when the images are in google storage?
 const imgs = {
     'https://libraries.cca.edu/media/images/zoom.original.png':
     'https://portal-media.cca.edu/images/zoom_UzBf8KV.original.png',
