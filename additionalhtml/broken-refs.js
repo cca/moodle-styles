@@ -13,7 +13,6 @@ document.querySelectorAll('a').forEach(a => {
     }
 })
 // images (point to Portal & not Libraries, related to Oct. 2021 outage)
-// @TODO why are these links still broken when the images are in google storage?
 const imgs = {
     'https://libraries.cca.edu/media/images/zoom.original.png':
     'https://portal-media.cca.edu/images/zoom_UzBf8KV.original.png',
