@@ -16,6 +16,12 @@
     border-left: #1177d1 8px solid;
 }
 
+// Disable "quick edit" of Zoom name on course home page
+// https://github.com/cca/moodle-styles/issues/12
+.activity.zoom.modtype_zoom .quickeditlink {
+    display: none;
+}
+
 // hide course progress indicator on dashboard block
 // see: https://moodle.org/mod/forum/discuss.php?d=395710
 // though the code given there was for 3.7 & didn't quite work
