@@ -18,6 +18,7 @@
 
 // Disable "quick edit" of Zoom name on course home page
 // https://github.com/cca/moodle-styles/issues/12
+// @TODO remove this when we update Zoom plugin to 4.3
 .activity.zoom.modtype_zoom .quickeditlink {
     display: none;
 }
