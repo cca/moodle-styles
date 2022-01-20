@@ -25,7 +25,9 @@ if (location.pathname.match('/course/view.php')) {
         '/filter/manage.php?contextid=',
         '/course/reset.php?id='
     ].forEach(u => {
-        let el = d.querySelector(`.context-header-settings-menu .dropdown-item [href*="${u}"]`).parentElement
-        el.parentElement.removeChild(el)
+        let el = d.querySelector(`.context-header-settings-menu .dropdown-item [href*="${u}"]`)
+        if (el) {
+            el.parentElement.parentElement.removeChild(el.parentElement)
+        }
     })
 }
