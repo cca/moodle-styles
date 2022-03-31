@@ -86,12 +86,10 @@
             return trackEvent('resources', el.href, el.parentElement.querySelectorAll('a')[1].textContent.trim())
         })
     })
-    // track Summon queries @TODO this doesn't seem to work anymore 10/5/21
+    // track Summon queries
     document.querySelector('#summon-search').addEventListener('submit', (ev) => {
-        if (ev.target.matches('.summon-search-widget')) {
-            let q = $('#summon-search .js-query').val().trim()
-            return trackEvent('resources', 'Summon search', q)
-        }
+        let q = $('#summon-search .js-query').val().trim()
+        return trackEvent('resources', 'Summon search', q)
     })
 })()
 </script>
