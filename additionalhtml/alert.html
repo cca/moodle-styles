@@ -1,0 +1,13 @@
+<div id="cca-alert" class="alert alert-danger ml-auto font-weight-bold" style="max-width: 100%;">Alert text goes here. You can change the div "alert-danger" (red) class to "alert-primary" (blue) or "alert-warning" (yellow). See https://getbootstrap.com/docs/4.0/components/alerts/ for all the options. Other Bootstrap classes such as the Spacing and Text ones can also be useful.</div>
+<script>
+(function() {
+    let i = 0
+    let main = () => {
+        if (jQuery) {
+            $('#cca-alert').prependTo('#page')
+            clearInterval(i)
+        }
+    }
+    i = setInterval(main, 500)
+})()
+</script>
