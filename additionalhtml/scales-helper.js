@@ -3,7 +3,7 @@
 if (location.pathname.match('/course/modedit.php')) {
     let d = document
     let id = 'cca-scale-warning'
-    let warning = `<div id="${id}" class="alert alert-warning hidden">Warning: Scales have been known to murder your students' grades. <a href="http://example.com">Read more about their consequences</a> and use them with the utmost caution.</div>`
+    let warning = `<div id="${id}" class="alert alert-warning hidden">Attention: Please read <a href="https://portal.cca.edu/teaching/teaching-lab/teaching-resources/teaching-and-learning-technologies/moodle/grading-tracking/using-scales-when-grading-faculty/#how-does-moodle-calculate-a-scale" target="_blank">How Moodle Calculates Scales</a> before using a scale.</div>`
 
     d.addEventListener('DOMContentLoaded', () => {
         let gtElement = d.querySelector('#id_grade_modgrade_type')
