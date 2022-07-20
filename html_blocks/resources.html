@@ -50,15 +50,15 @@
         </div>
     </form>
 </section>
-
 <script>
 (function() {
     // Presence API dox: https://dev.libraryh3lp.com/presence.html
     const queue = 'cca-libraries-queue',
-        url = `https://libraryh3lp.com/presence/jid/${queue}/chat.libraryh3lp.com/text`,
+        domain = 'libraryh3lp.com'
+        url = `https://${domain}/presence/jid/${queue}/chat.libraryh3lp.com/text`,
         activeStatuses = ['available', 'chat'],
         linkElements = document.querySelectorAll('.js-chat-link'),
-        chatLink = `https://libraryh3lp.com/chat/${queue}@chat.libraryh3lp.com?skin=30238`;
+        chatLink = `https://${domain}/chat/${queue}@chat.libraryh3lp.com?skin=30238`;
 
     fetch(url).then(r => r.text())
         .then(status => {
@@ -68,28 +68,5 @@
             }
         })
         .catch(e => console.error('error fetching libraryh3lp chat status:', e))
-
-    // analytics event: click on resource
-    const trackEvent = (category, action, label) => {
-        console.log('event', arguments)
-        return ga('send', 'event', {
-            eventCategory: category,
-            eventAction: action,
-            eventLabel: label,
-            transport: 'beacon'
-        })
-    }
-    // jquery hasn't loaded yet so we need to use vanilla JS
-    document.querySelectorAll('.js-resources a').forEach(el => {
-        el.addEventListener('click', event => {
-            // return text of the _second_ link (the label)
-            return trackEvent('resources', el.href, el.parentElement.querySelectorAll('a')[1].textContent.trim())
-        })
-    })
-    // track Summon queries
-    document.querySelector('#summon-search').addEventListener('submit', (ev) => {
-        let q = $('#summon-search .js-query').val().trim()
-        return trackEvent('resources', 'Summon search', q)
-    })
 })()
 </script>
