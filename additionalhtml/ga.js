@@ -11,15 +11,14 @@ window.gtag = function(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-9KK2VCY0TM', { 'anonymize_ip': true, 'transport_type': 'beacon' });
 
-// event tracking, we currently only use the custom category "resources"
+// event tracking, we currently only use the custom category "cca_resources"
 // we track clicks on any link in the resources block
 // their "action" is set to the link's URL
 // their "label" is set to the text label of the square
 // we also track usage of the Summon search box
 // the "action" is "Summon search" and the "label" is the query text
-const trackEvent = (category, action, label) => {
-    console.log('event', arguments)
-    return gtag('event', action, {
+const trackEvent = (name, category, label) => {
+    return gtag('event', 'cca_' + name, {
         event_category: category,
         event_label: label
     })
