@@ -10,7 +10,7 @@ if (location.pathname.match('/user/index.php')) {
         }
         return 'https://portal.cca.edu/knowledge-base/moodle/hiding-unhiding-courses/'
     }
-    let msg = `<p class="moodle-exception-message" style="max-width: 500px">Errors sending messages can occur when a course is hidden or a user's enrollment is "suspended". Try checking that <a href="${courseEditLink()}" target="_blank">your course visibility</a> is set to "show", or <a href="https://portal.cca.edu/teaching/teaching-lab/teaching-resources/teaching-and-learning-technologies/course-section-pages-portal-faculty/#emailing-your-class" target="_blank">using Portal</a> to email your class. If you need further assistance, <a href="https://portal.cca.edu/help-desk/" target="_blank">contact the Help Desk</a>.</p>`
+    let msg = `<p class="moodle-exception-message" style="max-width: 500px">Errors sending messages can occur when a course is hidden or if there are issues with a user account. Try checking that <a href="${courseEditLink()}" target="_blank">your course visibility</a> is set to "show", or <a href="https://portal.cca.edu/teaching/teaching-lab/teaching-resources/teaching-and-learning-technologies/course-section-pages-portal-faculty/#emailing-your-class" target="_blank">using Portal</a> to email your class. If you need further assistance, <a href="https://portal.cca.edu/help-desk/" target="_blank">contact the Help Desk</a>.</p>`
 
     // runs every time DOM mutates, jQuery should be available
     let onModalAppear = () => {
