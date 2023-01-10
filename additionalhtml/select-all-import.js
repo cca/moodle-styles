@@ -16,19 +16,19 @@
     function addSelectAll() {
         let html = '<div class="row"><div class="col-md-3"></div><div class="col-md-9"><input id="cca-select-all" name="select-all" type="checkbox" value="" data-state="deselect">&nbsp;&nbsp;<label class="cca-select-all-label" for="select-all">Select none</label></div></div>'
         $('#id_rootsettings .ftoggler').after(html)
+        let select_all = $('#cca-select-all')
 
-        $("#cca-select-all").prop("indeterminate", true).on('click', function(ev) {
-            let cb = $(this)
+        select_all.prop("indeterminate", true).add('.cca-select-all-label').on('click', function(ev) {
             ev.preventDefault()
-            if (cb.data('state') === 'select') {
+            if (select_all.data('state') === 'select') {
                 // check all other boxes
                 $('.checkbox input[type="checkbox"]').prop('checked', true)
                 // update state
-                cb.data('state', 'deselect').next().text('Select none')
+                select_all.data('state', 'deselect').next().text('Select none')
             } else {
                 // assume state=deselect
                 $('.checkbox input[type="checkbox"]').prop('checked', false)
-                cb.data('state', 'select').next().text('Select all')
+                select_all.data('state', 'select').next().text('Select all')
             }
         })
     }
