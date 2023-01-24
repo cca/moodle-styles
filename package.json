@@ -14,8 +14,8 @@
   "author": "phette23 <phette23@gmail.com> (http://phette.net)",
   "license": "ECL-2.0",
   "dependencies": {
-    "@babel/core": "^7.18.5",
-    "@babel/preset-env": "^7.18.2",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
