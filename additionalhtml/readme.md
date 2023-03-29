@@ -11,16 +11,6 @@ We use `additionalhtmltopofbody` for warnings or important announcements. To pos
 3. Copy-paste alert.html into the text area and **Save changes**
 4. Remember to remove the alert when it is no longer needed
 
-Is there a major problem breaking the Moodle login? Here is how to work around SSO authentication being down:
-
-1. Run a shell on the Moodle GKE pod - `kubectl -n $NAMESPACE exec (kubectl -n $NAMESPACE get pods -o custom-columns=":metadata.name" | grep moodle) -it -- /bin/bash`
-2. Disable SSO logins using [moosh](https://moosh-online.com/commands/) - `cd /bitnami/moodle; moosh -n auth-manage disable cas`
-3. Go to the Moodle website and login with the manual administrator account (shared with the appropriate people in Dashlane)
-4. Proceed with steps above
-5. Remember to re-enable SSO once it's fixed, either using the admin site under [Authentication Plugins](https://moodle.cca.edu/admin/category.php?category=authsettings) or with `moosh -n auth-manage enable cas`
-
-We can also put in Moodle in maintenance mode with `moosh -n maintenance-on`. It's recommended to do this while setting up the alert so users don't land on the manual login page and become frustrated when their CCA credentials don't work.
-
 ## Customizations
 
 Add CSS edits under the theme, e.g.  Site administration > Appearance > Themes > Boost > Advanced Settings > `Raw SCSS`.
