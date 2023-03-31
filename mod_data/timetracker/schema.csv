@@ -1,0 +1,4 @@
+name,type,required,description
+date,Date,No,Date
+note,Textarea,No,Notes on the work performed
+duration,Number,Yes,Amount of time spent in hours

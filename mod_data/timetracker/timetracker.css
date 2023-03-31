@@ -1,0 +1,10 @@
+.datatable table,
+.datatable th,
+.datatable td {
+	border: 1px solid gray;
+	border-collapse: collapse;
+}
+
+td.label {
+	text-align: right;
+}
