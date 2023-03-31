@@ -3,15 +3,30 @@
 function main() {
     // add template, make the number input type=number (why is it text?!?)
     let input = document.querySelector('.number-input input')
-    if (input) {
-        input.type = 'number'
-        input.step = '0.01'
-    }
+    if (input) fixHoursInput(input)
+
+    let dateSection = document.getElementById('date')
+    let params = new URLSearchParams(location.search)
+    if (location.pathname.match('edit.php') && dateSection && params.get('rid')) dateRollbackWarning(dateSection)
 
     timecount()
 
     let target = document.getElementById('js-csv-export')
     if (target) exposeCSVExport(target)
+}
+
+function fixHoursInput(input) {
+    // @TODO set a max, cannot work >24 hours in a day
+    input.type = 'number'
+    input.step = '0.01'
+}
+
+function dateRollbackWarning(section) {
+    // when you edit an entry, the date is set to one day earlier than it was
+    let alert = document.createElement('div')
+    alert.className = 'alert alert-danger'
+    alert.innerHTML = '<b>Warning:</b> if you edit an entry, the date resets to one day earlier than it was initially. Please double-check the date above is correct.'
+    section.appendChild(alert)
 }
 
 function timecount() {
