@@ -4,7 +4,7 @@ We store templates from [database][moodle_db] activities that InST has designed 
 
 Database activities are very flexible because they allow you to define a set of fields of various types, templates for viewing an individual entry, list of entries, and submitting a new entry, as well as custom JavaScript that loads on all of those template pages. You can fill in gaps and create your own activities easily, but because of their variable structure they cannot be hooked up to activity completion or grades automatically.
 
-To apply the code stored here, copy-paste into the HTML source view (the icon is angle brackets with a slash in between `</>`). You will also need to create fields with matching names and types; each activity should have a schema.csv which cannot be imported in any way but outlines what fields you need to create. Inputs (on the add form) and values (on the list and single views) for these fields are rendered in templates using double-bracketed `[[fieldname]]` syntax. There are also special double-hashmarked template fields that link to actions (e.g. `##delete##`) or user info (e.g. `##user##`).
+To apply the code stored here, copy-paste into the HTML source view (the icon is angle brackets with a slash in between `</>`). You also need to create fields with matching names and types; each activity should have a schema.csv which cannot be imported but details the fields to create. Inputs (on the add form) and values (on the list and single views) for these fields are rendered in templates using double-bracketed `[[fieldname]]` syntax. There are also special double-hashmarked template fields that link to actions (e.g. `##delete##`) or user info (e.g. `##user##`).
 
 ## Bugs and Gotchas
 
