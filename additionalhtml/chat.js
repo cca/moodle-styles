@@ -1,5 +1,5 @@
 // if we're signed in & not on an admin page
-if (!location.pathname.match('/admin/') && !!document.querySelector('.usermenu .usertext')) {
+if (!location.pathname.match('/admin/') && !!document.querySelector('.usermenu .avatar.current')) {
     // use libraryh3lp Presence API https://dev.libraryh3lp.com/presence.html
     fetch('https://libraryh3lp.com/presence/jid/cca-instructional-support/chat.libraryh3lp.com/text')
         .then(resp => resp.text())
