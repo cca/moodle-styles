@@ -1,5 +1,5 @@
-td.label {
-	text-align: right;
+.container {
+	margin-left: 0;
 }
 
 .list-header .cell {
@@ -14,4 +14,19 @@ td.label {
 
 .totals-table {
 	max-width: 28em;
+}
+
+.single-view-table {
+	max-width: 40rem;
+}
+
+/* next 2 rules wrap long notes content
+not sure why a long note can squish the
+th first column cells but below stops that */
+.single-view-table th {
+	min-width: 10rem;
+}
+
+.single-view-table .note {
+	word-break: break-all;
 }
