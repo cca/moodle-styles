@@ -1,10 +1,17 @@
-.datatable table,
-.datatable th,
-.datatable td {
-	border: 1px solid gray;
-	border-collapse: collapse;
-}
-
 td.label {
 	text-align: right;
+}
+
+.list-header .cell {
+	border-bottom: 1px solid gray;
+	font-weight: bold;
+	padding-bottom: .2rem;
+}
+
+.data-row .cell {
+	padding-top: 3px;
+}
+
+.totals-table {
+	max-width: 28em;
 }

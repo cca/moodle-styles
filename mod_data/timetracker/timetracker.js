@@ -35,14 +35,14 @@ function timecount() {
 
     // create the counts
     let counts = {}
-    document.querySelectorAll('table.data-row tr').forEach(row => {
-        let name = row.querySelector('td .name').innerText
-        let hours = parseFloat(row.querySelector('td.hours').innerText)
+    document.querySelectorAll('.js-data-row').forEach(row => {
+        let name = row.querySelector('.js-data-cell .name').innerText
+        let hours = parseFloat(row.querySelector('.js-data-cell.hours').innerText)
         counts[name] = (counts[name] || 0) + hours
     })
 
     // add counts to page
-    let list = document.querySelector('tbody.totals-list')
+    let list = document.querySelector('.js-totals-list')
     for (var name in counts) {
         let row = document.createElement('tr')
 
@@ -62,8 +62,8 @@ function timecount() {
 function makeCSVBlob() {
     // collect data, jQuery not available yet
     let data = 'Person,Date,Hours\n'
-    document.querySelectorAll('.data-row').forEach((row) => {
-        row.querySelectorAll('td').forEach((cell, idx) => {
+    document.querySelectorAll('.js-data-row').forEach((row) => {
+        row.querySelectorAll('.js-data-cell').forEach((cell, idx) => {
             // 1st 3 cells are data, last 2 are action links
             // if we add more fields then this condition will need to change
             if (idx < 3) {
