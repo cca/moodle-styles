@@ -84,7 +84,7 @@ function exposeCSVExport(target) {
         // Browsers that support HTML5 download attribute
         let url = URL.createObjectURL(makeCSVBlob())
         // @TODO prepend student name to filename? we can't determine if user is student or teacher though
-        target.innerHTML = `<p><a href="${url}" download="timesheet.csv">Download CSV</a><br>As with the totals, this exports <b>only the entries visible in the list above</b> so use the "Entries per page" and "Search" settings to ensure you get all the data you need.</p>`
+        target.innerHTML = `<p><a class="btn btn-primary" href="${url}" download="timesheet.csv">Download CSV</a></p><p>As with the totals, this exports <b>only the entries visible in the list above</b> so use the "Entries per page" and "Search" settings to ensure you get all the data you need.</p>`
     } else {
         // Browsers that don't support HTML5 download attribute
         target.innerHTML = "<p>Your browser does not support CSV export, please use a modern browser like the latest version of Chrome or Firefox.</p>"
