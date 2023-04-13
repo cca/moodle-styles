@@ -14,7 +14,7 @@
     }
 
     function addSelectAll() {
-        let html = '<div class="row"><div class="col-md-3"></div><div class="col-md-9"><input id="cca-select-all" name="select-all" type="checkbox" value="" data-state="deselect">&nbsp;&nbsp;<label class="cca-select-all-label" for="select-all">Select none</label></div></div>'
+        let html = '<div style="margin-left:1em;"><input id="cca-select-all" name="select-all" type="checkbox" value="" data-state="deselect">&nbsp;&nbsp;<label class="cca-select-all-label" for="select-all">Select none</label></div>'
         $('#id_rootsettings .ftoggler').after(html)
         let select_all = $('#cca-select-all')
 

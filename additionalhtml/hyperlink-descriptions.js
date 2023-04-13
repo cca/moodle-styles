@@ -1,7 +1,6 @@
-// Moodle has a few places (activity descriptions for LTIs, text in user tours)
-// where descriptions are plain-text only but we want to use clickable URLs. This
-// code monitors the DOM for the appropriate modal dialogs and, when it sees
-// them, does a simple text replace to hyperlink the URLs.
+// Activity descriptions for LTIS are plain-text only but we want to use
+// clickable URLs. This code monitors the DOM for the appropriate modal dialogs
+// and, when it sees them, does a simple text replace to hyperlink the URLs.
 
 // given plain text with included URLs like 'search https://google.com' into
 // hyperlinks like 'search <a href="https://google.com/">https://google.com</a>'

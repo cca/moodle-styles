@@ -10,7 +10,6 @@ if (location.pathname.match('/course/view.php')) {
     if (highlightedSection) {
         let name = highlightedSection.querySelector('.sectionname').textContent.trim()
 
-        // REM: QSA => NodeList & not Array, but forEach is widely supported now
         d.querySelectorAll('#nav-drawer li').forEach(item => {
             if (item.querySelector('.media-body').textContent.trim() === name) {
                 item.querySelector('a').classList.add('active')
