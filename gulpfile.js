@@ -32,13 +32,12 @@ function addlhtml() {
         .pipe(dest(settings.dest))
 }
 
-// same as above but no GTM script
+// same as above but no GTM script & don't minify
 function addlhtmlDev() {
 	return src(settings.src.additionalhtml)
 		.pipe(concat('footer.js'))
 		.pipe(iife())
-		.pipe(uglify())
-		.pipe(insert.prepend(`<script>\n// minified ${new Date().toLocaleString()} - see https://github.com/cca/moodle-styles\n`))
+		.pipe(insert.prepend(`<script>\n// updated ${new Date().toLocaleString()} - see https://github.com/cca/moodle-styles\n`))
 		.pipe(insert.append('\n</script>'))
 		.pipe(dest(settings.dest))
 }
