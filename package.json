@@ -9,7 +9,7 @@
     "css": "cat scss/*.scss | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=themesettingboost#theme_boost_advanced'",
     "cssd": "cat scss/*.scss | pbcopy; open 'https://moodle-stg-1.cca.edu/admin/settings.php?section=themesettingboost#theme_boost_advanced'",
     "js": "gulp addlhtml; cat build/footer.js | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=additionalhtml#admin-additionalhtmlfooter'",
-    "jsd": "gulp addlhtml; cat build/footer.js | pbcopy; open 'https://moodle-stg-1.cca.edu/admin/settings.php?section=additionalhtml#admin-additionalhtmlfooter'",
+    "jsd": "gulp addlhtmlDev; cat build/footer.js | pbcopy; open 'https://moodle-stg-1.cca.edu/admin/settings.php?section=additionalhtml#admin-additionalhtmlfooter'",
     "mobile": "gulp mobile; kubectl cp build/mobile.css moo-prod/$(kubectl -n 'moo-prod' get pods | ack moodle | cut -d ' ' -f 1):/bitnami/moodle/local",
     "test": "gulp lint"
   },

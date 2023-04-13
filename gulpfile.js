@@ -1,4 +1,4 @@
-const { src, dest, parallel, watch } = require('gulp')
+const { src, dest, parallel } = require('gulp')
 const concat = require("gulp-concat")
 const eslint = require('gulp-eslint')
 const iife = require("gulp-iife")
@@ -32,6 +32,17 @@ function addlhtml() {
         .pipe(dest(settings.dest))
 }
 
+// same as above but no GTM script
+function addlhtmlDev() {
+	return src(settings.src.additionalhtml)
+		.pipe(concat('footer.js'))
+		.pipe(iife())
+		.pipe(uglify())
+		.pipe(insert.prepend(`<script>\n// minified ${new Date().toLocaleString()} - see https://github.com/cca/moodle-styles\n`))
+		.pipe(insert.append('\n</script>'))
+		.pipe(dest(settings.dest))
+}
+
 function lint() {
 	return src(settings.src.additionalhtml)
 		.pipe(eslint())
@@ -39,14 +50,12 @@ function lint() {
 		.pipe(eslint.failAfterError())
 }
 
-// watch each main set of files & run its associated task
-function watchTask() {
-	return watch(settings.src.mobile, moodleMobile)
-}
-
 // by default, do all builds in parallel
-exports.addlhtml = addlhtml
-exports.default = parallel([moodleMobile])
-exports.lint = exports.test = lint
-exports.mobile = moodleMobile
-exports.watch = watchTask
+module.exports = {
+	addlhtml: addlhtml,
+	addlhtmlDev: addlhtmlDev,
+	default: parallel([moodleMobile]),
+	lint: lint,
+	mobile: moodleMobile,
+	test: lint,
+}
