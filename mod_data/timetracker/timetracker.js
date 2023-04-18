@@ -30,8 +30,8 @@ function dateRollbackWarning(section) {
 }
 
 function timecount() {
-    // needs confirmation but Cecilia said 220 hours for all programs
-    const THRESHOLD = 220
+    // Cecilia said 225 hours for all programs as of 4/19/23
+    const THRESHOLD = 225
 
     // create the counts
     let counts = {}
