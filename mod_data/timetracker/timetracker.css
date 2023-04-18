@@ -30,3 +30,22 @@ th first column cells but below stops that */
 .single-view-table .note {
 	word-break: break-all;
 }
+
+/* advanced search */
+/* make all inputs longer */
+.adv-search .form-inline input[type="text"] {
+	min-width: 300px;
+}
+
+/* make date checkbox display on same line */
+.adv-search .date-input .form-inline {
+	min-width: 402px;
+}
+
+.adv-search .date-input select:last-of-type {
+	margin-right: .5rem;
+}
+
+.adv-search .date-input input[type="checkbox"] {
+	margin-right: .2rem;
+}
