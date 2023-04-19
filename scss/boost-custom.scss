@@ -1,12 +1,3 @@
-// more emphasis on higlighted section
-.current h3.sectionname {
-    font-weight: bold;
-}
-
-.course-content .current::before {
-    border-left: #1177d1 8px solid;
-}
-
 // hide course progress indicator on dashboard block
 // see: https://moodle.org/mod/forum/discuss.php?d=395710
 // though the code given there was for 3.7 & didn't quite work
