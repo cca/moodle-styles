@@ -1,0 +1,26 @@
+// @TODO https://github.com/cca/moodle-styles/issues/24
+// resources grid on dashboard
+#resources-grid {
+    align-content: space-around;
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+    .resources-grid__resource {
+        margin-bottom: 1em;
+        min-width: 90px;
+        width: 33%;
+    }
+}
+
+// bs .form-control:focus does a box shadow which can get cut off if the input
+// takes up the full width of its container, which is what we're stopping here
+// $form-control-focus-shadow-width: .2rem;
+// note: Moodle's SCSS compiler doesn't seem to be able to handle simple math
+// like 2 * $v so we have to use literal values instead of variables
+#summon-search input.search {
+    margin-left: .2rem;
+    max-width: calc(100% - .4rem);
+}

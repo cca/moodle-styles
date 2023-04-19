@@ -22,23 +22,6 @@
     display: none;
 }
 
-// @TODO https://github.com/cca/moodle-styles/issues/24
-// resources grid on dashboard
-#resources-grid {
-    align-content: space-around;
-    align-items: baseline;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-
-    .resources-grid__resource {
-        margin-bottom: 1em;
-        min-width: 90px;
-        width: 33%;
-    }
-}
-
 .atto_image_preview_box {
     // preview of a very wide image can extend past the screen with
     // cca/moodle-styles#2 limit to viewport width minus approx. width of modal
@@ -46,6 +29,7 @@
     max-width: calc(100vw - 4rem) !important;
 }
 
+// @TODO need a test rubric
 // rubrics
 #rubric-criteria tr.odd {
     background: #fff;
