@@ -18,7 +18,7 @@
 }
 
 // hide Site Home menu link — Dashboard fulfills the same role
-a[data-key="home"] {
+.primary-navigation li[data-key="home"] {
     display: none;
 }
 
