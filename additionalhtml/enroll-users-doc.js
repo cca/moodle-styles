@@ -11,11 +11,11 @@ if (location.pathname.match('/user/index.php')) {
     let onModalAppear = () => {
         let header = d.querySelector('.modal-title')
         if (header && header.innerText.trim() === 'Enroll users') {
-            let legend = d.querySelector('legend.ftoggler')
+            let legend = d.querySelector('.ftoggler h3')
             let doc = d.getElementById(id)
+            // only insert msg if we haven't already, otherwise => infinite loop
             if (!doc && legend && legend.innerText.trim() === 'Enrollment options') {
-                // only insert msg if we haven't already, otherwise => infinite loop
-                legend.insertAdjacentElement('afterend', msg)
+                legend.parentElement.insertAdjacentElement('afterend', msg)
             }
         }
     }
