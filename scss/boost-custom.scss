@@ -17,11 +17,6 @@
     padding: 0 0.8rem 0;
 }
 
-// hide bottom prev/next arrows & "jump to" drop-down for activities
-.activity-navigation {
-    display: none;
-}
-
 // hide Site Home menu link — Dashboard fulfills the same role
 a[data-key="home"] {
     display: none;
