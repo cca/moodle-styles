@@ -22,6 +22,7 @@
     display: none;
 }
 
+// @TODO https://github.com/cca/moodle-styles/issues/24
 // resources grid on dashboard
 #resources-grid {
     align-content: space-around;
@@ -35,12 +36,6 @@
         margin-bottom: 1em;
         min-width: 90px;
         width: 33%;
-    }
-}
-
-.navbar {
-    .site-name {
-        visibility: hidden;
     }
 }
 
