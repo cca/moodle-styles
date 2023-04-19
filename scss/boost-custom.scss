@@ -1,9 +1,20 @@
+// https://github.com/cca/moodle-styles/issues/26
 // hide course progress indicator on dashboard block
-// see: https://moodle.org/mod/forum/discuss.php?d=395710
-// though the code given there was for 3.7 & didn't quite work
-#page-my-index .block-myoverview .small,
-#page-my-index .block-myoverview .progress {
-    display: none;
+.block .block-cards {
+    .progress-text {
+        display: none;
+    }
+
+    // make course actions menu always visible
+    .dashboard-card-footer.menu {
+        opacity: inherit;
+    }
+}
+
+// remove card footer top/bottom padding to reduce parent element's height
+// which looks awkward after we hide the progress text
+.card-footer.dashboard-card-footer {
+    padding: 0 0.8rem 0;
 }
 
 // hide bottom prev/next arrows & "jump to" drop-down for activities
