@@ -17,16 +17,4 @@ if (location.pathname.match('/course/view.php')) {
             }
         })
     }
-
-    // hide Restore, Filter, & Reset links in course "edit settings" menu
-    [
-        '/backup/restorefile.php?contextid=',
-        '/filter/manage.php?contextid=',
-        '/course/reset.php?id='
-    ].forEach(u => {
-        let el = d.querySelector(`.context-header-settings-menu .dropdown-item [href*="${u}"]`)
-        if (el) {
-            el.parentElement.parentElement.removeChild(el.parentElement)
-        }
-    })
 }
