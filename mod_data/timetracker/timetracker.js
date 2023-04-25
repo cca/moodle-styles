@@ -37,7 +37,7 @@ function timecount() {
     let counts = {}
     document.querySelectorAll('.js-data-row').forEach(row => {
         let name = row.querySelector('.js-data-cell .name').innerText
-        let hours = parseFloat(row.querySelector('.js-data-cell.hours').innerText)
+        let hours = parseFloat(row.querySelector('.js-data-cell .hours').innerText)
         counts[name] = (counts[name] || 0) + hours
     })
 
@@ -61,21 +61,22 @@ function timecount() {
 
 function makeCSVBlob() {
     // collect data, jQuery not available yet
-    let data = 'Person,Date,Hours\n'
+    let csvString = 'Person,Date,Hours\n'
     document.querySelectorAll('.js-data-row').forEach((row) => {
         row.querySelectorAll('.js-data-cell').forEach((cell, idx) => {
-            // 1st 3 cells are data, last 2 are action links
-            // if we add more fields then this condition will need to change
-            if (idx < 3) {
+            let datum = cell.querySelector('.js-datum')
+            if (datum) {
                 // quote & escape quotes to avoid breaking CSV
-                data += `"${cell.textContent.trim().replace(/"/g, '""')}",`
-            } else if (idx === 3) {
-                data += '\n'
+                csvString += `"${datum.textContent.trim().replace(/"/g, '""')}",`
+            }
+            // if we add more fields then this condition will need to change
+            if (idx === 3) {
+                csvString += '\n'
             }
         })
     })
 
-    let blob = new Blob([data], { type: 'text/csv;charset=utf-8;' })
+    let blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' })
     return blob
 }
 
