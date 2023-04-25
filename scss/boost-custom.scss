@@ -29,12 +29,9 @@
     max-width: calc(100vw - 4rem) !important;
 }
 
-// @TODO need a test rubric
-// rubrics
-#rubric-criteria tr.odd {
-    background: #fff;
-}
-// fix extra-long criterion column, ref #9
+// rubrics, test rubric:
+// https://moodle-stg-1.cca.edu/grade/grading/manage.php?contextid=709147&component=mod_assign&area=submissions
+// fix extra-long criterion column on rubric definition view, ref #9
 .gradingform_rubric .criterion .description {
     max-width: 300px;
 }
