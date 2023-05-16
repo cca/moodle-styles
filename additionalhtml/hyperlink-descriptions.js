@@ -23,8 +23,6 @@ function hyperlinkText(str) {
 function onModalAppear() {
     let hypeClass = 'js-hyperlinked'
     let descSelector = '[id^="optionsumary_desc-"]'
-    let tourSelector = '[id^="tour-step-tool_usertours_"] .modal-body'
-    let tour = document.querySelector(tourSelector)
 
     // we will have jQuery by the time someone clicks into a description
     if (window.jQuery && $(descSelector).length && !$(descSelector).hasClass(hypeClass)) {
@@ -35,11 +33,6 @@ function onModalAppear() {
             $p.html(html)
         })
         $desc.addClass(hypeClass)
-    // tours appear immediately, even before jQuery is loaded, somehow
-    } else if (tour && !tour.classList.contains(hypeClass)) {
-        let html = hyperlinkText(tour.textContent)
-        tour.innerHTML = html
-        tour.classList.add(hypeClass)
     }
 }
 
