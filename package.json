@@ -10,7 +10,7 @@
     "cssd": "cat scss/*.scss | pbcopy; open 'https://moodle-stg-1.cca.edu/admin/settings.php?section=themesettingboost#theme_boost_advanced'",
     "js": "gulp addlhtml; cat build/footer.js | pbcopy; open 'https://moodle.cca.edu/admin/settings.php?section=additionalhtml#admin-additionalhtmlfooter'",
     "jsd": "gulp addlhtmlDev; cat build/footer.js | pbcopy; open 'https://moodle-stg-1.cca.edu/admin/settings.php?section=additionalhtml#admin-additionalhtmlfooter'",
-    "mobile": "gulp mobile; kubectl cp build/mobile.css moo-prod/$(kubectl -n 'moo-prod' get pods | ack moodle | cut -d ' ' -f 1):/bitnami/moodle/local",
+    "mobile": "gulp mobile; if [ -n \"$NS\" ]; then kubectl -n $NS cp build/mobile.css $(kubectl -n $NS get pods -o custom-columns=name:.metadata.name | grep moodle):/bitnami/moodle/local; else echo 'no NS namespace env var, not pushing mobile.css to pod'; fi",
     "test": "gulp lint"
   },
   "author": "phette23 <phette23@gmail.com> (http://phette.net)",
