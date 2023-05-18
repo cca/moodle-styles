@@ -18,7 +18,9 @@
 }
 
 // hide Site Home menu link — Dashboard fulfills the same role
-.primary-navigation li[data-key="home"] {
+// first selector is desktop menu, second is mobile nav drawer
+.primary-navigation li[data-key="home"],
+.drawer-primary .drawercontent .list-group a[href$="/?redirect=0"] {
     display: none;
 }
 
