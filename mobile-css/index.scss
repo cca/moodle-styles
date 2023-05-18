@@ -3,8 +3,11 @@
 
 // hide course progress indicator on dashboard block
 // https://github.com/moodlehq/moodleapp/tree/v4.1.1/src/core/components/progress-bar
-.core-progress-bar,
-progress,
-.core-progress-text {
-    display: none !important;
+// https: //github.com/moodlehq/moodleapp/blob/v4.1.x/src/theme/theme.light.scss
+.core-course-progress {
+    .core-progress-bar,
+    progress,
+    .core-progress-text {
+        display: none !important;
+    }
 }
