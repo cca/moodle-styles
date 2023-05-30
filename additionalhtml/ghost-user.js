@@ -9,7 +9,7 @@ if (location.pathname.match('/user/edit.php')) {
     if (surname === "" || email === "") {
         let alert = document.createElement('div')
         alert.className = 'alert alert-danger'
-        alert.innerHTML = "Seeing empty profile fields you're unable to edit? This happens when you sign into Moodle before your account has been created. It is common for students and faculty who have a CCA account but are not yet enrolled in or teaching any courses. We recommend waiting until you're in a course, as there's nothing to do before then. Contact <a href='https://portal.cca.edu/help-desk/'>the Help Desk</a> and mention this error message if you have questions."
+        alert.innerHTML = "Seeing empty profile fields you're unable to edit? This happens when you sign into Moodle before your account is created. It is common for students and faculty who have a CCA account but are not yet enrolled in or teaching any courses. Contact <a href='https://portal.cca.edu/help-desk/'>the Help Desk</a> and mention this error message to have your Moodle profile fixed."
         d.getElementById('id_moodle').prepend(alert)
     }
 }
