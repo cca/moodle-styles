@@ -24,6 +24,13 @@
     display: none;
 }
 
+// #31 activity chooser footer overlaps "more help" link
+// final selector is in hope of not affecting other modals accidentally
+.modal-dialog .optionsummary .content.mb-5.p-2.px-sm-5.py-sm-4 {
+    // overriding a mb-5 class which uses !important too
+    margin-bottom: 4rem !important;
+}
+
 .atto_image_preview_box {
     // preview of a very wide image can extend past the screen with
     // cca/moodle-styles#2 limit to viewport width minus approx. width of modal
