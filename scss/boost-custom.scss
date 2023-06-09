@@ -48,6 +48,11 @@
     max-width: none;
 }
 
+// #28 access restrictions overflow the box they're contained in
+#page-mod-assign-mod .availability-eye {
+    padding-left: 0;
+}
+
 // make shortname & idnumber inputs as wide as course title under Edit Settings
 #id_general #id_idnumber,
 #id_general #id_shortname,
