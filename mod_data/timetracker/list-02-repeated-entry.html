@@ -1,8 +1,21 @@
 <div class="container data-row js-data-row">
-    <div class="row">
-        <span class="col-md-2 js-data-cell cell">##delcheck## <span class="name">##user##</span></span>
-        <span class="col-md-2 js-data-cell cell">[[date]]</span>
-        <span class="col-md-1 js-data-cell cell hours">[[duration]]</span>
-        <span class="col-md-2 js-data-cell cell"><a href="##moreurl##">##more##</a> ##edit##&nbsp;##delete## </span>
+    <div class="row mb-1">
+        <div class="col-md-2 js-data-cell cell">
+            <span>##delcheck##</span>
+            <span class="label d-inline d-sm-none font-weight-bold">Person:</span>
+            <span class="js-datum name">##user##</span>
+        </div>
+        <div class="col-md-2 js-data-cell cell">
+            <span class="label d-inline d-sm-none font-weight-bold">Date:</span>
+            <span class="js-datum">[[date]]</span>
+        </div>
+        <div class="col-md-1 js-data-cell cell">
+            <span class="label d-inline d-sm-none font-weight-bold">Duration:</span>
+            <span class="js-datum hours">[[duration]]</span>
+        </div>
+        <div class="col-md-2 js-data-cell cell">
+            <span class="label d-inline d-sm-none font-weight-bold">Actions:</span>
+            <span><a href="##moreurl##">##more##</a> ##edit##&nbsp;##delete##</span>
+        </div>
     </div>
 </div>
