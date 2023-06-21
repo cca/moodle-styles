@@ -1,22 +1,35 @@
-<div class="defaulttemplate">
-    <table class="mod-data-default-template">
-        <tbody>
-            <tr class="searchcontrols">
-                <td class="template-field">Notes:</td>
-                <td class="template-token">[[note]]</td>
-            </tr>
-            <tr class="searchcontrols">
-                <td class="template-field">Date:</td>
-                <td class="template-token">[[date]]</td>
-            </tr>
-            <tr class="searchcontrols">
-                <td class="template-field">Author first name:</td>
-                <td class="template-token">##firstname##</td>
-            </tr>
-            <tr class="searchcontrols">
-                <td class="template-field">Author surname:</td>
-                <td class="template-token">##lastname##</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<!-- classes copied from user browse form https://moodle.cca.edu/admin/user.php -->
+<section class="fcontainer adv-search">
+        <div class="form-group row fitem">
+            <div class="col-md-4 col-form-label d-flex pb-0 pr-md-0" aria-hidden="true">
+                <p class="mb-0 word-break">Notes</p>
+            </div>
+            <div class="col-md-8 form-inline align-items-start felement">
+                <fieldset class="w-100 m-0 p-0 border-0">[[note]]</fieldset>
+            </div>
+        </div>
+        <div class="form-group row fitem">
+            <div class="col-md-4 col-form-label d-flex pb-0 pr-md-0" aria-hidden="true">
+                <p class="mb-0 word-break">Date</p>
+            </div>
+            <div class="col-md-8 form-inline align-items-start felement">
+                <fieldset class="w-100 m-0 p-0 border-0 date-input">[[date]]</fieldset>
+            </div>
+        </div>
+        <div class="form-group row fitem">
+            <div class="col-md-4 col-form-label d-flex pb-0 pr-md-0" aria-hidden="true">
+                <p class="mb-0 word-break">Author first name</p>
+            </div>
+            <div class="col-md-8 form-inline align-items-start felement">
+                <fieldset class="w-100 m-0 p-0 border-0">##firstname##</fieldset>
+            </div>
+        </div>
+        <div class="form-group row fitem">
+            <div class="col-md-4 col-form-label d-flex pb-0 pr-md-0" aria-hidden="true">
+                <p class="mb-0 word-break">Author surname</p>
+            </div>
+            <div class="col-md-8 form-inline align-items-start felement">
+                <fieldset class="w-100 m-0 p-0 border-0">##lastname##</fieldset>
+            </div>
+        </div>
+</section>
