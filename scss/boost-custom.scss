@@ -52,6 +52,9 @@
 .availability-list .availability-eye {
     padding-left: 0 !important;
 }
+.mform .form-inline .availability_completion .form-group {
+    width: calc(100% + 1rem)
+}
 
 // make shortname & idnumber inputs as wide as course title under Edit Settings
 #id_general #id_idnumber,
