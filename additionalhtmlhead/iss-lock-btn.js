@@ -13,7 +13,12 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
         let div = document.createElement('div')
         div.className = "form-group row fitem py-1"
         div.innerHTML = html
-        const target = document.getElementById('fitem_id_currentgrade')
-        if (target) target.insertAdjacentElement('beforebegin', div)
+        const interval = setInterval(() => {
+            let target = document.getElementById('fitem_id_currentgrade')
+            if (target) {
+                target.insertAdjacentElement('beforebegin', div)
+                clearInterval(interval)
+            }
+        }, 500)
     }
 }
