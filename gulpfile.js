@@ -11,6 +11,7 @@ const settings = {
 	dest: "build",
 	src: {
 		additionalhtml: ["additionalhtml/*.js"],
+		head: ["additionalhtmlhead/*.js"],
 		mobile: ["mobile-css/index.scss"]
 	}
 }
@@ -42,6 +43,26 @@ function addlhtmlDev() {
 		.pipe(dest(settings.dest))
 }
 
+function head() {
+	return src(settings.src.head)
+		.pipe(concat('head.js'))
+		.pipe(iife())
+		.pipe(uglify())
+		.pipe(insert.prepend(`<script>\n// minified ${new Date().toLocaleString()} - see https://github.com/cca/moodle-styles\n`))
+		.pipe(insert.append('\n</script>'))
+		.pipe(dest(settings.dest))
+}
+
+// same as above but don't minify
+function headDev() {
+	return src(settings.src.head)
+		.pipe(concat('head.js'))
+		.pipe(iife())
+		.pipe(insert.prepend(`<script>\n// updated ${new Date().toLocaleString()} - see https://github.com/cca/moodle-styles\n`))
+		.pipe(insert.append('\n</script>'))
+		.pipe(dest(settings.dest))
+}
+
 function lint() {
 	return src(settings.src.additionalhtml)
 		.pipe(eslint())
@@ -54,6 +75,8 @@ module.exports = {
 	addlhtml: addlhtml,
 	addlhtmlDev: addlhtmlDev,
 	default: parallel([moodleMobile]),
+	head: head,
+	headDev: headDev,
 	lint: lint,
 	mobile: moodleMobile,
 	test: lint,
