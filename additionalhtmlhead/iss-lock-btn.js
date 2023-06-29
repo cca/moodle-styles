@@ -10,15 +10,19 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
     // make sure we have all the parameters we need
     if (params.get('id') && params.get('userid') && M && M.cfg && M.cfg.sesskey) {
         const html = `<a href="/mod/assign/view.php?id=${params.get('id')}&userid=${params.get('userid')}&action=lock&sesskey=${M.cfg.sesskey}" class="btn btn-primary" title="This button disallows further student submissions and triggers an email notification to ISS. Push it AFTER you have Saved the grade.">Lock Submissions & Notify ISS</a>`
+        const id = 'cca-iss-btn'
         let div = document.createElement('div')
         div.className = "form-group row fitem py-1"
         div.innerHTML = html
-        const interval = setInterval(() => {
+        div.id = id
+
+        // grading UI is quite dynamic, check DOM every second and add our button if it's not there
+        setInterval(() => {
             let target = document.getElementById('fitem_id_currentgrade')
-            if (target) {
+            let ourbtn = document.getElementById(id)
+            if (target && !ourbtn) {
                 target.insertAdjacentElement('beforebegin', div)
-                clearInterval(interval)
             }
-        }, 500)
+        }, 1000)
     }
 }
