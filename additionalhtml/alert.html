@@ -1,9 +1,9 @@
-<div id="cca-alert" class="alert alert-danger ml-auto font-weight-bold" style="margin: 0 auto;">Alert text goes here. You can change the div "alert-danger" (red) class to "alert-primary" (blue) or "alert-warning" (yellow). See https://getbootstrap.com/docs/4.0/components/alerts/ for all the options. Other Bootstrap classes such as the Spacing and Text ones can also be useful.</div>
+<div id="cca-alert" class="alert alert-danger ml-auto font-weight-bold" style="margin: 0 auto;">Alert text goes here. You can change the div "alert-danger" (red) class to "alert-primary" (blue) or "alert-warning" (yellow). See https://getbootstrap.com/docs/4.0/components/alerts/ for all the options. Other Bootstrap classes such as the Spacing and Text ones can also be useful. Place HTML in the additionalhtmltopofbody setting.</div>
 <script>
 (function() {
     let i = 0
     let main = () => {
-        if (jQuery) {
+        if (window.jQuery) {
             $('#cca-alert').prependTo('#page')
             clearInterval(i)
         }
