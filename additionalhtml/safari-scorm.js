@@ -7,6 +7,9 @@ if (location.pathname.match('/mod/scorm/view.php') && isSafari) {
     // using window.addEventListener('load',...) can cause an AJAX error in Moodle
     document.addEventListener('DOMContentLoaded', () => {
         alert('This activity does not work on Safari. Please use another browser, such as Mozilla Firefox or Google Chrome.')
+        // track this, use an event meant for games lol
+        // https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtag#unlock_achievement
+        if (typeof gtag === 'function') gtag('event', 'unlock_achievement', { achievement_id: "safari_scorm" })
         // monitor for button and disable it
         const interval = setInterval(() => {
             let btn = document.getElementById('n')
