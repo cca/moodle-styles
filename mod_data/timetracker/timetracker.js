@@ -1,3 +1,7 @@
+// This number changes depending on program. It's 225 for most required internships.
+// Set to null if not needed.
+const THRESHOLD = 225
+
 // this JS is loaded on every template so always check for element existence
 // before trying to manipulate the DOM
 function main() {
@@ -30,9 +34,6 @@ function dateRollbackWarning(section) {
 }
 
 function timecount() {
-    // Cecilia said 225 hours for all programs as of 4/19/23
-    const THRESHOLD = 225
-
     // create the counts
     let counts = {}
     document.querySelectorAll('.js-data-row').forEach(row => {
@@ -52,7 +53,7 @@ function timecount() {
 
         let countCell = document.createElement('td')
         countCell.innerText = counts[name]
-        if (counts[name] >= THRESHOLD) countCell.innerText += ' ✅'
+        if (THRESHOLD && counts[name] >= THRESHOLD) countCell.innerText += ' ✅'
         row.appendChild(countCell)
 
         list.appendChild(row)
