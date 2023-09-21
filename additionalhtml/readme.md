@@ -15,15 +15,17 @@ We use `additionalhtmltopofbody` for warnings or important announcements. To pos
 
 Add CSS edits under the theme, e.g.  Site administration > Appearance > Themes > Boost > Advanced Settings > `Raw SCSS`.
 
+`additionalhtmlhead` is useful because it is loaded on the grading interface, whereas `additionalhtmlfooter` is not. It has its own folder in this project, see the readme in that folder.
+
 `additionalhtmlfooter` is the spot for JavaScript. Note that code loaded here happens _before jQuery_ or require.js are loaded, so we are pretty much forced to run a `setInterval` loop to wait for other resources to be available if we need them.
 
-This repo's npm script `npm run js` runs a gulp build process over all the .js files in this directory, copies the result to your clipboard, and opens the appropriate Moodle settings page to paste into. We'll need to `npm install` the dependencies for this.
+This repo's npm script `npm run js` runs a gulp build process over all the .js files in the `additionalhtml` directory, copies the result to your clipboard, and opens the appropriate Moodle settings page to paste into. We'll need to `npm install` the dependencies for this.
 
 Note that, since all these scripts are concatenated together, syntax errors can be generated—to be safe, end each file in a semicolon if appropriate, to prevent the already-minified ga.js file from looking like a function call.
 
 ## Misc. Notes
 
-Moodle documentation for these settings resides here: https://docs.moodle.org/38/en/Header_and_footer
+Moodle documentation for these settings resides here: https://docs.moodle.org/400/en/Header_and_footer
 
 Formerly its own repo at https://github.com/cca/moodle_additionalhtml
 
