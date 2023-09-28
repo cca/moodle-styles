@@ -33,7 +33,8 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
         let grading_scale = Array.from(document.querySelectorAll('#id_grade option'))
         if (grading_scale && grading_scale.some(g => g.textContent.trim().toLowerCase() === 'iss approved')) {
             clearInterval(interval)
-            // make sure we have all the parameters we need
+            // ensure we have parameters we need, redefine url params b/c userid not always there on page load
+            params = new URLSearchParams(location.search)
             if (params.get('id') && params.get('userid') && M && M.cfg && M.cfg.sesskey) {
                 // grading UI is quite dynamic, check DOM every second and add our button if it's not there
                 setInterval(monitorAndAddButton, 1000)
