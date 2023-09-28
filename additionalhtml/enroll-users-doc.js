@@ -5,7 +5,7 @@ if (location.pathname.match('/user/index.php')) {
     let d = document
     let id = 'js-cca-enrol-docs'
     let msg = d.createElement('div')
-    msg.innerHTML = `<div id="${id}" class="alert-primary" style="margin:6px;padding-left: 20px;padding-top: 12px;padding-right: 20px;padding-bottom: 12px;">Learn more about <strong><a href="https://portal.cca.edu/knowledge-base/moodle/managing-enrollment-in-moodle-courses/" target="_blank">manual enrollments</a></strong>.</div>`
+    msg.innerHTML = `<div id="${id}" class="alert-primary" style="margin:6px;padding-left: 20px;padding-top: 12px;padding-right: 20px;padding-bottom: 12px;">Please do not <strong><a href="https://portal.cca.edu/knowledge-base/moodle/managing-enrollment-in-moodle-courses/" target="_blank">manually enroll students</a></strong>.</div>`
 
     // runs every time DOM mutates, jQuery should be available
     let onModalAppear = () => {
