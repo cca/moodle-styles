@@ -29,7 +29,7 @@ if (location.pathname.match('/mod/feedback/complete.php')) {
     const getInputFromLabel = (str) => {
         for (let i = 0; i < numLabels; i++) {
             let label = labels[i]
-            if (label.textContent.trim().toLowerCase() === str.toLowerCase()) {
+            if (label.textContent.toLowerCase().includes(str.toLowerCase())) {
                 return label.parentElement.parentElement.querySelector('input')
             }
         }
@@ -40,21 +40,31 @@ if (location.pathname.match('/mod/feedback/complete.php')) {
         // hide "Mode: anonymous" & course short name, these mean nothing to users
         anonymous.classList.add('hidden')
         course.classList.add('hidden')
+
         // autofill intern name
         let name = d.querySelector('.logininfo .logininfo a[title]').textContent
         let nameField = getInputFromLabel('your name')
         if (name && nameField) nameField.value = name
+
         // better input validation
-        // intern email is an email
         let internEmailField = getInputFromLabel('your email')
         if (internEmailField) internEmailField.type = 'email'
-        // @TODO student ID is numeric
-        // @TODO phone number? is it too hard to validate international phone numbers?
+        // student ID is numeric
+        let studentID = getInputFromLabel('your student id')
+        if (studentID) {
+            studentID.pattern = '[0-9]+'
+            studentID.title = 'Enter your numeric student ID.'
+        }
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel
-        // supervisor email is an email
+        let internPhone = getInputFromLabel('your phone number')
+        if (internPhone) internPhone.type = 'tel'
         let superEmailField = getInputFromLabel('supervisor email')
         if (superEmailField) superEmailField.type = 'email'
-        // @TODO supervisor phone number
-        // @TODO start date & end date (use datepicker?)
+        let superPhone = getInputFromLabel('supervisor phone number')
+        if (superPhone) superPhone.type = 'tel'
+        let startDate = getInputFromLabel('anticipated start date')
+        if (startDate) startDate.type = 'date'
+        let endDate = getInputFromLabel('anticipated end date')
+        if (endDate) endDate.type = 'date'
     }
 }
