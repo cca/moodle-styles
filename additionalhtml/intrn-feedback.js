@@ -9,10 +9,7 @@ if (location.pathname.match('/mod/feedback/complete.php')) {
 
     const isInternshipCourse = () => {
         let shortname = course && course.querySelector('.felement') && course.querySelector('.felement').textContent.trim()
-        // while testing do not run on actual internships courses, just Eric's sandbox
-        if (shortname &&
-            // shortname.match(/^INTRN-/) ||
-            shortname.match('SANDBOX-ephetteplace')) return true
+        if (shortname && shortname.match(/^INTRN-/) || shortname.match('SANDBOX-ephetteplace')) return true
         return false
     }
 
