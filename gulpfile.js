@@ -53,16 +53,6 @@ function head() {
 		.pipe(dest(settings.dest))
 }
 
-// same as above but don't minify
-function headDev() {
-	return src(settings.src.head)
-		.pipe(concat('head.js'))
-		.pipe(iife())
-		.pipe(insert.prepend(`<script>\n// updated ${new Date().toLocaleString()} - see https://github.com/cca/moodle-styles\n`))
-		.pipe(insert.append('\n</script>'))
-		.pipe(dest(settings.dest))
-}
-
 function lint() {
 	return src(settings.src.additionalhtml)
 		.pipe(eslint())
@@ -76,7 +66,6 @@ module.exports = {
 	addlhtmlDev: addlhtmlDev,
 	default: parallel([moodleMobile]),
 	head: head,
-	headDev: headDev,
 	lint: lint,
 	mobile: moodleMobile,
 	test: lint,
