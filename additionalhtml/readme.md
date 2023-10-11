@@ -11,6 +11,8 @@ We use `additionalhtmltopofbody` for warnings or important announcements. To pos
 3. Copy-paste alert.html into the text area and **Save changes**
 4. Remember to remove the alert when it is no longer needed
 
+This project contains the default warning we use on staging to prevent users from accidentally using it. If you were experimenting with a new alert on staging, you can reset it to the default with `NS=moo-stg1 ./scripts/cfgset.sh additionalhtmltopofbody additionalhtml/staging-alert.html`.
+
 ## Customizations
 
 Add CSS edits under the theme, e.g.  Site administration > Appearance > Themes > Boost > Advanced Settings > `Raw SCSS`.

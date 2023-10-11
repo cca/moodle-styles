@@ -1,16 +1,16 @@
 # CCA Moodle Styles
 
-Front-end Moodle files (images, JS, styles).
+Front-end Moodle files (images, JS, styles). There are npm scripts to apply the changes from the local project to our remote Moodle instances. They rely on a `NS` namespace variable set to either our staging or production namespace. See `npm run` for the list of commands.
 
 ## Theme Assets
 
 ### Styles
 
-SCSS which you insert this code in the text area under Site Administration > Appearance > Themes > Boost > Advanced Settings. You can run `npm run css` to copy the SCSS to your clipboard & open this administration page.
+SCSS which you insert this code in the text area under Site Administration > Appearance > Themes > Boost > Advanced Settings.
 
 ### Scripts
 
-We insert custom scripts into the `additionalhtml > footer` settings area. Our scripts are all under the additionalhtml directory. You can run `npm run js` to build the JavaScript and open the settings page.
+We insert custom scripts into the `additionalhtml > footer` settings area. Our scripts are all under the additionalhtml directory.
 
 ### HTML blocks
 
