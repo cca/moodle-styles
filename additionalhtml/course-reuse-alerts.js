@@ -10,7 +10,8 @@ if (location.pathname.match('/backup/backup.php')) {
     }
 }
 // #37 warn users about import mistakes
-if (location.pathname.match('/backup/import.php')) {
+// only if course ID is in the path, otherwise shows up at end of successful import
+if (location.pathname.match('/backup/import.php') && location.search.match(/id=\d+/)) {
     let msg = `<div class="alert alert-warning col-md-9 mx-auto">
 Before import, make sure you are in your destination course, not your origin course.<br>
 If you previously attempted to import and can't find your course content, double check your destination and origin courses before trying to import again. This helps avoid accidentally importing a course twice.<br>
