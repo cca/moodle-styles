@@ -3,12 +3,23 @@
 // grading scale is: -1 No grade, 1 Incomplete, 2 ISS Review, 3 ISS Approved
 let params = new URLSearchParams(location.search)
 if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 'grader') {
+    // notify user of error, fall back to browser alert if we can't load Moodle's notification library
+    const errorAlert = () => {
+        if (require) {
+            return require([ 'core/notification' ], function (notification) {
+            notification.alert("Error", "Locking the assignment failed, no notification was sent to ISS. Please manually lock the submission (View all submissions -> Edit -> Prevent submission changes) and let <a href='https://portal.cca.edu/help-desk/'>the Help Desk</a> know about this error.")
+            })
+        }
+        return alert("Locking the assignment failed, no notification was sent to ISS. Please manually lock the submission (View all submissions -> Edit -> Prevent submission changes) and let the Help Desk know about this error.")
+    }
+
+    // lock assignment if grade is ISS Review & notify user
     const handler = (event) => {
         // only lock if grade is ISS Review
         if (document.querySelector('#id_grade').value.trim().toLowerCase() !== '2') {
-            console.log('Not locking because grade is not ISS Review')
-            return
+            return console.log('Not locking because grade is not ISS Review')
         }
+        // ! is this necessary if the form doesn't submit normally anyways?
         // prevent the form from submitting
         event.preventDefault()
         // the query string can change without the page reloading if you arrow to another student
@@ -16,24 +27,25 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
         // lock URLs look like
         // https://moodle.cca.edu/mod/assign/view.php?id=236146&userid=4453&action=lock&sesskey=vKW7E2y8Kn&page=0
         // where ID appears to be the Assignment ID and user ID is the student's ID
-        const url = `https://${location.hostname}/mod/assign/view.php?id=${params.get('id')}&userid=${params.get('userid')}&action=lock&sesskey=${M.cfg.sesskey}`
-        fetch(url)
+        fetch(`https://${location.hostname}/mod/assign/view.php?id=${params.get('id')}&userid=${params.get('userid')}&action=lock&sesskey=${M.cfg.sesskey}`)
             .then(response => {
                 if (response.ok) {
+                    // See Moodle documentation of JS notifications and "toasts"
+                    // https://componentlibrary.moodle.com/admin/tool/componentlibrary/docspage.php/moodle/components/notifications#javascript-notifications
+                    require([ 'core/toast' ], function (toast) {
+                        toast.add("ISS has been notified.", { type: 'success' })
+                    })
                     console.log('Locking successful')
                     // do not submit the form, the form that wraps the buttons has no inputs or action URL
-                    // leads to an error page if you submit it
+                    // it leads to an error page if you submit it
                 } else {
-                    // TODO show a modal alert
-                    console.error('Locking failed')
-                    console.error(response)
-                    alert("Locking failed")
+                    console.error('Locking failed', response)
+                    errorAlert()
                 }
             })
             .catch(error => {
                 console.error(error)
-                // TODO show a modal alert
-                alert("Locking failed")
+                errorAlert()
             })
     }
 
@@ -61,7 +73,7 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
             // ensure we have parameters we need, redefine url params b/c userid not always there on page load
             params = new URLSearchParams(location.search)
             if (params.get('id') && params.get('userid') && M && M.cfg && M.cfg.sesskey) {
-                // grading UI is quite dynamic, check DOM every second and add our button if it's not there
+                // grading UI is dynamic, check DOM every second and add our handler if it's not there
                 setInterval(monitorAndAddHandler, 1000)
             }
         }
