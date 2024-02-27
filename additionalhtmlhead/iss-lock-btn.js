@@ -6,6 +6,7 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
     // notify user of error, fall back to browser alert if we can't load Moodle's notification library
     // see additionalhtmlhead/readme.md for how Moodle notifications work
     const errorAlert = () => {
+        // TODO longer than average timeout
         if (require) {
             return require([ 'core/notification' ], function (notification) {
             notification.alert("Error", "Locking the assignment failed, no notification was sent to <abbr title='International Student Services'>ISS</abbr>. Please manually lock the submission (View all submissions > Edit > Prevent submission changes) and let <a href='https://portal.cca.edu/help-desk/' target='_blank'>the Help Desk</a> know about this error.")
@@ -29,9 +30,11 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
         fetch(`https://${location.hostname}/mod/assign/view.php?id=${params.get('id')}&userid=${params.get('userid')}&action=lock&sesskey=${M.cfg.sesskey}`)
             .then(response => {
                 if (response.ok) {
+                    // TODO longer than average timeout
                     require([ 'core/toast' ], function (toast) {
                         toast.add("ISS has been notified.", { type: 'success' })
                     })
+                    // TODO log IDs to console
                     console.log('Locking successful')
                     // do not submit the form, the form that wraps the buttons has no inputs or action URL
                     // it leads to an error page if you submit it
@@ -46,11 +49,10 @@ if (location.pathname.match('/mod/assign/view.php') && params.get('action') === 
             })
     }
 
-    // TODO it might be safest to add our own "save" button to the DOM
-    // we don't know if messing with the existing buttons has side effects
     const monitorAndAddHandler = () => {
         let target = document.querySelector('button[name="savechanges"]')
         let locked = document.querySelector('.submissionnoteditable')
+        // TODO if it's locked, should we remove the handler?
         // target exists, there's no button, & assignment isn't already locked
         if (target && !locked) {
             // reset the handler (could have navigated to another student)
