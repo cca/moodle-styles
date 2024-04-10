@@ -16,6 +16,7 @@
   "author": "phette23 <phette23@gmail.com> (http://phette.net)",
   "license": "ECL-2.0",
   "dependencies": {
+    "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^6.0.0",
     "gulp-iife": "^0.4.0",
@@ -24,8 +25,5 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.74.1"
-  },
-  "devDependencies": {
-    "gulp": "^5.0.0"
   }
 }
