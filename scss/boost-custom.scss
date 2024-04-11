@@ -1,5 +1,5 @@
 // https://github.com/cca/moodle-styles/issues/26
-// hide course progress indicator on dashboard block
+// hide course progress indicator on My Courses page /my/courses.php
 .block .block-cards {
     .progress-text {
         display: none;
@@ -22,13 +22,6 @@
 .primary-navigation li[data-key="home"],
 .drawer-primary .drawercontent .list-group a[href$="/?redirect=0"] {
     display: none;
-}
-
-// #31 activity chooser footer overlaps "more help" link
-// final selector is in hope of not affecting other modals accidentally
-.modal-dialog .optionsummary .content.mb-5.p-2.px-sm-5.py-sm-4 {
-    // overriding a mb-5 class which uses !important too
-    margin-bottom: 4rem !important;
 }
 
 .atto_image_preview_box {
