@@ -29,17 +29,16 @@
     max-width: 100%;
 }
 
-// rubrics, test rubric:
+// https://github.com/cca/moodle-styles/issues/9
+// fix extra-long criterion column on rubric definition view
+// test rubric:
 // https://moodle-stg-1.cca.edu/grade/grading/manage.php?contextid=709147&component=mod_assign&area=submissions
-// fix extra-long criterion column on rubric definition view, ref #9
-.gradingform_rubric .criterion .description {
-    max-width: 300px;
-}
 .gradingform_rubric .criterion .levels .level {
     max-width: none;
 }
 
-// #28 access restrictions overflow the box they're contained in
+// https://github.com/cca/moodle-styles/issues/28
+// access restrictions overflow the box they're contained in
 .availability-list .availability-eye {
     padding-left: 0 !important;
 }
