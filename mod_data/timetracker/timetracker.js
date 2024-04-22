@@ -9,6 +9,9 @@ function main() {
     let input = document.querySelector('.number-input input')
     if (input) fixHoursInput(input)
 
+    let pagination = document.querySelector('form nav.pagination')
+    if (pagination) paginationWarning()
+
     let dateSection = document.getElementById('date')
     let params = new URLSearchParams(location.search)
     if (location.pathname.match('edit.php') && dateSection && params.get('rid')) dateRollbackWarning(dateSection)
@@ -20,9 +23,15 @@ function main() {
 }
 
 function fixHoursInput(input) {
-    // TODO set a max, cannot work >24 hours in a day
     input.type = 'number'
     input.step = '0.01'
+}
+
+function paginationWarning() {
+    let alert = document.createElement('div')
+    alert.className = 'alert alert-warning mt-2'
+    alert.innerHTML = 'Not all entries are shown on this page and only the visible entries count towards the <a href="#hours-totals">Totals</a>. Use the <strong>Entries per page</strong> input above to ensure you are seeing the data you need.'
+    document.querySelector('.datapreferences').appendChild(alert)
 }
 
 function dateRollbackWarning(section) {
