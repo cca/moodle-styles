@@ -30,7 +30,7 @@ function fixHoursInput(input) {
 function paginationWarning() {
     let alert = document.createElement('div')
     alert.className = 'alert alert-warning mt-2'
-    alert.innerHTML = 'Not all entries are shown on this page and only the visible entries count towards the <a href="#hours-totals">Totals</a>. Use the <strong>Entries per page</strong> input above to ensure you are seeing the data you need.'
+    alert.innerHTML = 'You are seeing this warning because not all entries are shown on this page and only visible entries count towards the <a href="#hours-totals">Totals</a>. Use the <strong>Entries per page</strong> input above to ensure you have the data you want.'
     document.querySelector('.datapreferences').appendChild(alert)
 }
 
