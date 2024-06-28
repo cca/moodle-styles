@@ -10,7 +10,7 @@ if (location.pathname.match('/mod/feedback/complete.php')) {
     const isInternshipCourse = () => {
         let shortname = course && course.querySelector('.felement') && course.querySelector('.felement').textContent.trim()
         const patterns = [/^INTRN-/, 'TEMPLATE-INTRN', 'SANDBOX-ephetteplace']
-        if (shortname && (patterns.some(p => shortname.match(p)))) {
+        if (shortname && patterns.some(p => shortname.match(p))) {
             return true
         }
         return false
