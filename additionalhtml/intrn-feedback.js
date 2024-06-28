@@ -3,13 +3,16 @@
 if (location.pathname.match('/mod/feedback/complete.php')) {
     const d = document
     // how can we tell if it's one of the right Feedbacks in an internships course?
-    // 1) it's in anonymous mode, 2) course label matches an "INTRN-" shortname
+    // 1) it's in anonymous mode, 2) course label matches an "INTRN" shortname
     let anonymous = d.getElementById('fitem_id_anonymousmode')
     let course = d.querySelector('.info-course')
 
     const isInternshipCourse = () => {
         let shortname = course && course.querySelector('.felement') && course.querySelector('.felement').textContent.trim()
-        if (shortname && shortname.match(/^INTRN-/) || shortname.match('SANDBOX-ephetteplace')) return true
+        const patterns = [/^INTRN-/, 'TEMPLATE-INTRN', 'SANDBOX-ephetteplace']
+        if (shortname && (patterns.some(p => shortname.match(p)))) {
+            return true
+        }
         return false
     }
 
