@@ -43,6 +43,7 @@ function addlhtmlDev() {
 		.pipe(dest(settings.dest))
 }
 
+// defunct since we have no additionalhtmlhead js anymore
 function head() {
 	return src(settings.src.head)
 		.pipe(concat('head.js'))

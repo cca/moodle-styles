@@ -6,7 +6,7 @@
   "scripts": {
     "alert": "./scripts/cfgset.sh additionalhtmltopofbody additionalhtml/alert.html",
     "css": "cat scss/*.scss > build/boost.scss && ./scripts/scss.sh build/boost.scss",
-    "head": "gulp head && cat additionalhtmlhead/$NS.html build/head.js > build/additionalhtmlhead.html && ./scripts/cfgset.sh additionalhtmlhead build/additionalhtmlhead.html",
+    "head": "./scripts/cfgset.sh additionalhtmlhead additionalhtmlhead/$NS.html",
     "js": "gulp addlhtml && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
     "jsd": "gulp addlhtmlDev && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
     "lint": "gulp lint",

@@ -8,7 +8,7 @@ The names of the HTML files for each instance should be set to their respective 
 
 The grading interface for assignments, which has a URL that looks like `/mod/assign/view.php?id=$ASSIGNMENT&rownum=0&action=grader&userid=$USER`, does not include the content of the other two `additionalhtml` settings, but it does include this head. The only way to customize the grading interface with JavaScript is to include a `<script>` tag here.
 
-We need to customize the grading interface as part of our effort to [streamline the Internships ILA approval process](https://github.com/cca/moodle-styles/issues/32).
+We need to customize the grading interface as part of our effort to [streamline the Internships ILA approval process](https://github.com/cca/moodle-styles/issues/32). We subsequently _removed_ the customization after the international ILA process changes of July, 2024.
 
 ## Alerts and Modal Dialogs
 
