@@ -7,6 +7,8 @@ if (location.pathname.match('/grade/report/history/index.php')) {
     const t = (s) => {
         // use strict regex to avoid replacing "3.00" in grade like "23.00"
         return s.replace(/^2\.00$/, 'The academic department has given approval for this internship.')
+            // ISS no longer grades submissions to 3, their approvals happen outside of Moodle, but
+            // this ensures historical ILAs from 2023-24 are translated
             .replace(/^3\.00$/, 'International Student Services approved this internship.')
     }
     const d = document
