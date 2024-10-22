@@ -1,6 +1,5 @@
 const { src, dest, parallel } = require('gulp')
 const concat = require("gulp-concat")
-const eslint = require('gulp-eslint')
 const iife = require("gulp-iife")
 const insert = require("gulp-insert")
 const rename = require('gulp-rename')
@@ -54,20 +53,11 @@ function head() {
 		.pipe(dest(settings.dest))
 }
 
-function lint() {
-	return src(settings.src.additionalhtml)
-		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError())
-}
-
 // by default, do all builds in parallel
 module.exports = {
 	addlhtml: addlhtml,
 	addlhtmlDev: addlhtmlDev,
 	default: parallel([moodleMobile]),
 	head: head,
-	lint: lint,
 	mobile: moodleMobile,
-	test: lint,
 }

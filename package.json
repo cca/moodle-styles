@@ -6,20 +6,18 @@
   "scripts": {
     "alert": "./scripts/cfgset.sh additionalhtmltopofbody additionalhtml/alert.html",
     "css": "cat scss/*.scss > build/boost.scss && ./scripts/scss.sh build/boost.scss",
-    "eslint": "eslint --cache --stats .",
     "head": "./scripts/cfgset.sh additionalhtmlhead additionalhtmlhead/$NS.html",
     "js": "gulp addlhtml && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
     "jsd": "gulp addlhtmlDev && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
-    "lint": "gulp lint && eslint --cache --stats .",
+    "lint": "eslint --cache --stats .",
     "mobile": "gulp mobile && ./scripts/mobile.sh",
-    "test": "gulp lint"
+    "test": "eslint --cache --stats ."
   },
   "author": "phette23 <phette23@gmail.com> (http://phette.net)",
   "license": "ECL-2.0",
   "dependencies": {
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-eslint": "^6.0.0",
     "gulp-iife": "^0.4.0",
     "gulp-insert": "^0.5.0",
     "gulp-rename": "^2.0.0",
