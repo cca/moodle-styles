@@ -3,7 +3,7 @@ function copyHelpToClipboard(event) {
     let content = event.target.parentElement.dataset.content
     if (content) {
         // strip HTML tags
-        content = content.replace(/(<([^>]+)>)/gi, "")
+        content = content.replace(/(<([^>]+)>)/gi, '')
         navigator.clipboard.writeText(content).then(()=>{
             if (M && M.core && M.core.alert) {
                 new M.core.alert({
@@ -19,4 +19,4 @@ function copyHelpToClipboard(event) {
 
 document.querySelectorAll('.fa-question-circle.text-info').forEach(el => {
     el.addEventListener('dblclick', copyHelpToClipboard)
-});
+})

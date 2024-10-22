@@ -10,11 +10,11 @@ if (!location.pathname.match('/admin/') && !!document.querySelector('.usermenu .
                 let div = document.createElement('div')
                 div.className = 'needs-js'
                 document.querySelector('body').append(div)
-                let x = document.createElement("script");
-                x.async = true;
-                x.src = "https://libraryh3lp.com/js/libraryh3lp.js?17190";
-                let y = document.getElementsByTagName("script")[0];
-                y.parentNode.insertBefore(x, y);
+                let x = document.createElement('script')
+                x.async = true
+                x.src = 'https://libraryh3lp.com/js/libraryh3lp.js?17190'
+                let y = document.getElementsByTagName('script')[0]
+                y.parentNode.insertBefore(x, y)
             }
         })
 }

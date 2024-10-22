@@ -91,13 +91,13 @@ function makeCSVBlob() {
 }
 
 function exposeCSVExport(target) {
-    if (document.createElement("a").download !== undefined) { // feature detection
+    if (document.createElement('a').download !== undefined) { // feature detection
         // Browsers that support HTML5 download attribute
         let url = URL.createObjectURL(makeCSVBlob())
         target.innerHTML = `<p><a class="btn btn-primary" href="${url}" download="timesheet.csv">Download CSV</a></p><p>As with the totals, this exports <b>only the entries visible in the list above</b> so use the "Entries per page" and "Search" settings to ensure you get all the data you need.</p>`
     } else {
         // Browsers that don't support HTML5 download attribute
-        target.innerHTML = "<p>Your browser does not support CSV export, please use a modern browser like the latest version of Chrome or Firefox.</p>"
+        target.innerHTML = '<p>Your browser does not support CSV export, please use a modern browser like the latest version of Chrome or Firefox.</p>'
     }
 }
 

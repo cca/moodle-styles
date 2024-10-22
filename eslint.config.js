@@ -1,8 +1,8 @@
 import globals from 'globals'
-import js from "@eslint/js"
+import js from '@eslint/js'
 
 export default [
-    { ignores: ["build/**"], },
+    { ignores: ['build/**'], },
     js.configs.recommended,
     {
         languageOptions: {

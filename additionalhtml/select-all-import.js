@@ -18,7 +18,7 @@
         $('#id_rootsettings .ftoggler').after(html)
         let select_all = $('#cca-select-all')
 
-        select_all.prop("indeterminate", true).add('.cca-select-all-label').on('click', function(ev) {
+        select_all.prop('indeterminate', true).add('.cca-select-all-label').on('click', function(ev) {
             ev.preventDefault()
             if (select_all.data('state') === 'select') {
                 // check all other boxes
