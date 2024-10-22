@@ -6,10 +6,11 @@
   "scripts": {
     "alert": "./scripts/cfgset.sh additionalhtmltopofbody additionalhtml/alert.html",
     "css": "cat scss/*.scss > build/boost.scss && ./scripts/scss.sh build/boost.scss",
+    "eslint": "eslint --cache --stats .",
     "head": "./scripts/cfgset.sh additionalhtmlhead additionalhtmlhead/$NS.html",
     "js": "gulp addlhtml && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
     "jsd": "gulp addlhtmlDev && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
-    "lint": "gulp lint",
+    "lint": "gulp lint && eslint --cache --stats .",
     "mobile": "gulp mobile && ./scripts/mobile.sh",
     "test": "gulp lint"
   },
@@ -24,6 +25,10 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
-    "sass": "^1.77.8"
+    "sass": "^1.80.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0"
   }
 }
