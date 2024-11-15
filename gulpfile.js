@@ -6,6 +6,10 @@ const rename = require('gulp-rename')
 const sass = require('gulp-sass')(require('sass'))
 const uglify = require('gulp-uglify')
 
+// silence deprecation warnings due to old gulp plugins
+const process = require('process')
+process.removeAllListeners('warning')
+
 const settings = {
     dest: 'build',
     src: {
