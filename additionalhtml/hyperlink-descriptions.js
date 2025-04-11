@@ -2,9 +2,24 @@
 // clickable URLs. This code monitors the DOM for the appropriate modal dialogs
 // and, when it sees them, does a simple text replace to hyperlink the URLs.
 
+// Escape HTML first to guard against XSS attacks
+function escapeHTML(str) {
+    return str.replace(/[&<>"']/g, (char) => {
+        switch (char) {
+            case '&': return '&amp;'
+            case '<': return '&lt;'
+            case '>': return '&gt;'
+            case '"': return '&quot;'
+            case "'": return '&#39;'
+            default: return char
+        }
+    })
+}
+
 // given plain text with included URLs like 'search https://google.com' into
 // hyperlinks like 'search <a href="https://google.com/">https://google.com</a>'
 function hyperlinkText(str) {
+    str = escapeHTML(str)
     return str.replace(/([^\S]|^)(https?:\/\/[^\s]*)/gi, (match, space, url) => {
         // try to validate the URL a little
         try {
