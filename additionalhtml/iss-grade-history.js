@@ -1,5 +1,6 @@
 // https://github.com/cca/moodle-styles/issues/40
 // translate ILA assignment numeric scale values on grade history page into official text
+// ISS no longer grades in Moodle but this is useful for historical ILAs
 if (location.pathname.match('/grade/report/history/index.php')) {
     // normalize (trim, lowercase) string for comparisons
     const n = (s) => s.trim().toLowerCase()
