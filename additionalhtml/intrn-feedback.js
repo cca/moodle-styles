@@ -44,10 +44,7 @@ if (location.pathname.match('/mod/feedback/complete.php')) {
         // autofill intern name
         let name = d.querySelector('.logininfo .logininfo a[title]').textContent
         let nameField = getInputFromLabel('your name')
-        if (name && nameField) {
-            nameField.value = name
-            nameField.disabled = true
-        }
+        if (name && nameField) nameField.value = name
 
         // better input validation
         let internEmailField = getInputFromLabel('your email')
