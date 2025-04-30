@@ -1,15 +1,9 @@
-<div id="cca-alert" class="alert alert-danger ml-auto font-weight-bold" style="margin: 0 auto;">This is our development
-    instance of Moodle, do not use it for course work. Go to <a href="https://moodle.cca.edu">moodle.cca.edu</a>
-    instead.</div>
+<div id="cca-alert" class="alert alert-danger ml-auto font-weight-bold" style="margin: 0 auto;">This is our development instance of Moodle, do not use it for course work. Go to <a href="https://moodle.cca.edu">moodle.cca.edu</a> instead.</div>
 <script>
-    (function () {
-        let i = 0
-        let main = () => {
-            if (window.jQuery) {
-                $('#cca-alert').prependTo('#page')
-                clearInterval(i)
-            }
-        }
-        i = setInterval(main, 500)
-    })()
+// DOMContentLoaded fires too early, window load works
+window.addEventListener('load', () => {
+    const alert = document.getElementById('cca-alert')
+    const page = document.getElementById('page')
+    page.insertBefore(alert, page.firstChild)
+})
 </script>
