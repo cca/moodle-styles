@@ -1,4 +1,4 @@
-// if an instructor chooses a Grade > "Type: Scale" on an activity we wamt to
+// if an instructor chooses a Grade > "Type: Scale" on an activity we want to
 // show them extra help text because scales can be very misleading
 if (location.pathname.match('/course/modedit.php')) {
     let d = document
@@ -16,8 +16,9 @@ if (location.pathname.match('/course/modedit.php')) {
                 let gradeType = $(event.target).val().trim()
 
                 // add hidden warning to DOM on first blur
-                if (!d.getElementById(id)) $('#fitem_fgroup_id_grade .form-inline, #fitem_fgroup_id_grade_forum .form-inline').append(warning)
-
+                if (!d.getElementById(id)) {
+                    $('#fitem_fgroup_id_grade fieldset, #fitem_fgroup_id_grade_forum fieldset').parent().append(warning)
+                }
                 if (gradeType === 'scale') {
                     return $(`#${id}`).show()
                 }
