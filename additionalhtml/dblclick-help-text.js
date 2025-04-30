@@ -5,10 +5,14 @@ function copyHelpToClipboard(event) {
         // strip HTML tags
         content = content.replace(/(<([^>]+)>)/gi, '')
         navigator.clipboard.writeText(content).then(()=>{
-            if (M && M.core && M.core.alert) {
-                new M.core.alert({
-                    'title': 'Help text copied',
-                    'message': 'Double-clicking a help icon <i class="icon fa fa-question-circle text-info fa-fw"></i>will copy its text to your clipboard.'
+            if (require) {
+                require(['core/modal'], (Modal) => {
+                    Modal.create({
+                        title: 'Help text copied',
+                        body: 'Double-clicking a help icon <i class="icon fa fa-question-circle text-info fa-fw"></i>copies its text to your clipboard.'
+                    }).then((modal) => {
+                        modal.show()
+                    })
                 })
             }
         }, ()=>{
