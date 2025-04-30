@@ -1,19 +1,12 @@
 // https://github.com/cca/moodle-styles/issues/26
 // hide course progress indicator on My Courses page /my/courses.php
-.block .block-cards {
-    .progress-text {
-        display: none;
-    }
-
-    // make course actions menu always visible
-    .dashboard-card-footer.menu {
-        opacity: inherit;
-    }
+.block .block-cards .progress-text {
+    display: none;
 }
 
 // remove card footer top/bottom padding to reduce parent element's height
 // which looks awkward after we hide the progress text
-.dashboard-card-deck .dashboard-card .card-footer.dashboard-card-footer {
+.card-grid .card .card-footer {
     padding: 0 0.8rem 0;
 }
 
@@ -31,8 +24,6 @@
 
 // https://github.com/cca/moodle-styles/issues/9
 // fix extra-long criterion column on rubric definition view
-// test rubric:
-// https://moodle-stg-1.cca.edu/grade/grading/manage.php?contextid=709147&component=mod_assign&area=submissions
 .gradingform_rubric .criterion .levels .level {
     max-width: none;
 }
@@ -42,7 +33,7 @@
 .availability-list .availability-eye {
     padding-left: 0 !important;
 }
-.mform .form-inline .availability_completion .form-group {
+.mform .availability_completion .availability-group {
     width: calc(100% + 1rem)
 }
 
