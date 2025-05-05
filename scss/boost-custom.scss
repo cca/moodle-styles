@@ -37,6 +37,12 @@
     width: calc(100% + 1rem)
 }
 
+// Long idnumbers overflow bounds on Manage course categories & courses page
+// See a "Metacourses" category for example as they have long idnumbers
+#page-course-management .course-list .listitem-course .flex-shrink-0 {
+    flex-shrink: 1 !important;
+}
+
 // make shortname & idnumber inputs as wide as course title under Edit Settings
 #id_general #id_idnumber,
 #id_general #id_shortname,
