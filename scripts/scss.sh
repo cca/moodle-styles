@@ -12,6 +12,8 @@ if [[ -f $FILE ]]; then
     kubectl --namespace "$NS" exec "$POD" -- php /bitnami/moodle/admin/cli/cfg.php --component="theme_boost" --name="scss" --set="$(cat "$FILE")"
     # rebuild theme CSS, this happens automatically when you update via UI but not for cfg.php
     kubectl --namespace "$NS" exec "$POD" -- php /bitnami/moodle/admin/cli/build_theme_css.php --themes=boost
+    # Commands above ran as root, reset file ownership
+    kubectl --namespace "$NS" exec "$POD" -- find /opt/moodledata -user root -exec chown daemon {} \;
 else
     echo "ERROR: argument must be a SCSS file"
 fi
