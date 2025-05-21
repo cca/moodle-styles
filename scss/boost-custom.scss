@@ -37,6 +37,12 @@
     width: calc(100% + 1rem)
 }
 
+// https://github.com/cca/moodle-styles/issues/51
+// Collapsed Topics activity completion is right-aligned
+body.format-topcoll .ctopics .section .d-flex {
+    justify-content: start;
+}
+
 // Long idnumbers overflow bounds on Manage course categories & courses page
 // See a "Metacourses" category for example as they have long idnumbers
 #page-course-management .course-list .listitem-course .flex-shrink-0 {
