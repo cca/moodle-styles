@@ -15,6 +15,7 @@ export default [
                 dataLayer: 'writable',
                 // Moodle & jQuery
                 M: 'readonly',
+                require: 'readonly',
                 $: 'readonly',
             },
             sourceType: 'script',
