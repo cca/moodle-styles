@@ -55,22 +55,12 @@ function getCourseVisibility(id) {
 }
 
 /**
- * Adds a visibility badge underneath the course title
- * @param   {number}  visible  1 if the course is visible, 0 if hidden
+ * Adds a 'course is hidden' badge under course title
  * @returns  {void}
  */
-function addVisibilityBadge(visible) {
-    let color, text
-    if (visible) {
-        color = 'bg-success text-light'
-        text = 'Visible to students'
-    } else {
-        color = 'bg-warning text-dark'
-        text = 'Hidden from students'
-    }
-    const html = `<span class="badge rounded-pill ${color}"><i class="icon fa fa-eye-slash fa-fw" aria-hidden="true"></i>${text}</span>`
+function courseHiddenBadge() {
     // ? Will we have jQuery by now?
-    $('.page-header-headings').append(html)
+    $('.page-header-headings').append('<span class="badge rounded-pill bg-info text-light"><i class="icon fa fa-eye-slash fa-fw" aria-hidden="true"></i>Hidden from students</span>')
 }
 
 // only run on course home page
@@ -84,9 +74,11 @@ if (location.pathname.match('/course/view.php')) {
                 return console.error('AMD require/core/ajax not available in this environment')
             }
             getCourseVisibility(getQueryParam('id'))
-                .then(visible => addVisibilityBadge(visible))
+                .then(visible => {
+                    if (visible === 0) courseHiddenBadge()
+                })
                 .catch(e => console.error(e))
         }
         tries++
-    }, 500)
+    }, 400)
 }
