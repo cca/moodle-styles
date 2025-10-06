@@ -60,7 +60,7 @@ function getCourseVisibility(id) {
  */
 function courseHiddenBadge() {
     // ? Will we have jQuery by now?
-    $('.page-header-headings').append('<span class="badge rounded-pill bg-info text-light"><i class="icon fa fa-eye-slash fa-fw" aria-hidden="true"></i>Hidden from students</span>')
+    $('.page-header-headings').append('<span class="badge rounded-pill bg-info text-light" style="cursor:help" title="Go to Settings &gt; Course visibility to make your course visible."><i class="icon fa fa-eye-slash fa-fw" aria-hidden="true"></i>Hidden from students</span>')
 }
 
 // only run on course home page
