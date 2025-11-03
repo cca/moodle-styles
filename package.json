@@ -9,9 +9,9 @@
     "head": "./scripts/cfgset.sh additionalhtmlhead additionalhtmlhead/$NS.html",
     "js": "gulp addlhtml && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
     "jsd": "gulp addlhtmlDev && ./scripts/cfgset.sh additionalhtmlfooter build/footer.js",
-    "lint": "echo 'The MODULE_TYPELESS_PACKAGE_JSON error can be ignored.'; eslint --cache --stats .",
+    "lint": "NODE_OPTIONS=--no-warnings; eslint --cache --stats .",
     "mobile": "gulp mobile && ./scripts/mobile.sh",
-    "test": "echo 'The MODULE_TYPELESS_PACKAGE_JSON error can be ignored.'; eslint --cache --stats ."
+    "test": "NODE_OPTIONS=--no-warnings; eslint --cache --stats ."
   },
   "author": "phette23 <phette23@gmail.com> (http://phette.net)",
   "license": "ECL-2.0",
