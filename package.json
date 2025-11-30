@@ -22,11 +22,11 @@
     "gulp-insert": "^0.5.0",
     "gulp-rename": "^2.1.0",
     "gulp-uglify": "^3.0.2",
-    "sass": "^1.93.3"
+    "sass": "^1.94.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.0",
-    "eslint": "^9.39.0",
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "gulp-sass": "^6.0.1"
   }
